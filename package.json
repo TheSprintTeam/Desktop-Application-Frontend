@@ -1,0 +1,15 @@
+{
+  "name": "electron",
+  "productname": "Sprint",
+  "version": "1.0.0",
+  "description": "SPRINT front-end",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^25.1.0"
+  }
+}
