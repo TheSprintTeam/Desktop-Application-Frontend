@@ -1,0 +1,61 @@
+{
+  "name": "vite-react-electron",
+  "description": "The Sprint Application",
+  "author": "The Sprint Team",
+  "version": "0.0.0",
+  "type": "module",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "electron": "wait-on tcp:3000 && cross-env IS_DEV=true electron .",
+    "electron:dev": "concurrently -k \"cross-env BROWSER=none npm run dev\" \"npm run electron\"",
+    "electron:builder": "electron-builder",
+    "build:for:electron": "tsc --noEmit && cross-env ELECTRON = true vite build",
+    "app:build": "npm run build:for:electron && npm run electron:builder",
+    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0"
+  },
+  "build": {
+    "appId": "vite-react-electron",
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "files": [
+      "dist/**/*",
+      "electron/main.cjs",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "nsis": {
+      "uninstallDisplayName": "Uninstall this app.",
+      "license": "license.txt",
+      "oneClick": "false",
+      "allowToChangeInstallationDirectory": "true"
+    },
+    "directories": {
+      "output": "releases",
+      "buildResources": "dist"
+    }
+  },
+  "dependencies": {
+    "concurrently": "^8.2.0",
+    "cross-env": "^7.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "wait-on": "^7.0.1"
+  },
+  "devDependencies": {
+    "electron": "^25.3.0",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "@vitejs/plugin-react": "^4.0.1",
+    "eslint": "^8.44.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.1",
+    "vite": "^4.4.0"
+  }
+}
