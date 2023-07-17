@@ -8,7 +8,7 @@ const createWindow = () => {
     })
 
     win.loadURL("http://localhost:3000")
-    win.loadFile(path.join(app.getAppPath(), "dist/index.html"))
+    //win.loadFile(path.join(app.getAppPath(), "dist/index.html"))
 }
 
 app.whenReady().then(() => {
