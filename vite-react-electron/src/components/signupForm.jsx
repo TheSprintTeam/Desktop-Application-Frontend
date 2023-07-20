@@ -1,4 +1,4 @@
-import "../assets/css/signupForm.css";
+import "../assets/css/SignupForm.css";
 
 export default function SignupForm() {
     return (
