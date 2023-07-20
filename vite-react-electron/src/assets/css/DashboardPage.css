@@ -1,0 +1,47 @@
+.dashpage-outer {
+    background-color: #fff;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 100px;
+}
+
+.dashpage-title {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.dashpage-desc {
+    font-size: 22px;
+    font-weight: medium;
+}
+
+.dashpage-inner {
+    display: flex;
+    flex-direction: horizontal;
+    padding-top: 20px;
+}
+
+.dashpage-create {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-right: 50px;
+}
+
+.dashpage-join {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 50px;
+}
+
+.dashpage-button-top {
+    padding-bottom: 10px;
+    font-weight: bold;
+    font-size: 20px;
+}

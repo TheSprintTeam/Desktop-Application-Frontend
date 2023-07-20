@@ -1,9 +1,19 @@
 import { useState } from 'react';
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import Navbar from './components/Navbar.jsx';
 import DashboardPage from './pages/DashboardPage';
 import ErrorPage from './pages/ErrorPage';
 import SignupPage from './pages/SignupPage';
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import Navbar from './components/Navbar.jsx';
+import JoinTeamPage from './pages/JoinTeamPage';
+
+function NavbarWrapper() {
+  return (
+    <div>
+      <Navbar />
+      <Outlet />
+    </div>
+  );
+}
 
 const router = createBrowserRouter([
   {
@@ -19,21 +29,15 @@ const router = createBrowserRouter([
         path: "/login",
         element: <SignupPage />,
       },
+      {
+        path: "/join-team",
+        element: <JoinTeamPage />,
+      },
     ],
   },
 ]);
 
-function NavbarWrapper() {
-  return (
-    <div>
-      <Navbar />
-      <Outlet />
-    </div>
-  );
-}
-
 function App() {
-
   return (
     <>
       <RouterProvider router={router} />
