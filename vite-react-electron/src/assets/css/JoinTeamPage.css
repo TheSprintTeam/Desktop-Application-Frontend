@@ -1,0 +1,53 @@
+.join-team-outer {
+    background-color: #fff;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 120px;
+}
+
+.join-team-title {
+    font-size: 48px;
+    font-weight: bold;
+    margin: 0px;
+    height: 62px;
+    padding-bottom: 24px;
+}
+
+.join-team-desc {
+    font-size: 22px;
+    font-weight: medium;
+    margin: 0px;
+    height: 30px;
+    padding-bottom: 56px;
+}
+
+.join-team-input-container {
+    display: flex;
+    flex-direction: row;
+    border: 2px solid #cbd5e0;
+    border-radius: 6px;
+    padding: 1px;
+    width: 342px;
+    height: 72px;
+    max-width: 342px;
+}
+
+.join-team-input-field {
+    background-color: #fff;
+    color: #dad9d9;
+    font-size: 30px;
+    font-weight: bold;
+    flex-grow: 2;
+    border: none;
+    max-width: 230px;
+    max-height: 72px;
+    line-height: 32px;
+    text-align: center;
+}
+
+.join-team-input-field:focus {
+    outline: none;
+}

@@ -1,3 +1,4 @@
+/* Button Styling for Dashboard Welcome Page */
 .button-welcome {
     background-color: #f7fafc;
     color: rgba(109,112,118, 0.2);
@@ -17,6 +18,33 @@
 }
 
 .button-welcome:focus {
+    background-color: rgba(159, 122, 234, 0.8);
+    border: 2px solid rgba(109,112,118, 0.2);
+    outline: none;
+    transform: scale(0.9);
+    box-shadow: 0 3px 15px -2px;
+    color: #fff;
+}
+
+/* Button Styling for Joining a Team */
+.button-submit {
+    background-color: #cbd5e0;
+    border: #cbd5e0;
+    width: 300px;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 36px;
+    padding: 0px;
+    transition: 0.3s;
+}
+
+.button-submit:hover {
+    background-color: #9f7aea;
+    color: #fff;
+    border: #9f7aea;
+}
+
+.button-submit:focus {
     background-color: rgba(159, 122, 234, 0.8);
     border: 2px solid rgba(109,112,118, 0.2);
     outline: none;
