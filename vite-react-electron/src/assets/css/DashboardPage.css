@@ -5,23 +5,28 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding-top: 100px;
+    padding-top: 120px;
 }
 
 .dashpage-title {
     font-size: 48px;
     font-weight: bold;
+    margin: 0px;
+    height: 62px;
+    padding-bottom: 24px;
 }
 
 .dashpage-desc {
     font-size: 22px;
     font-weight: medium;
+    margin: 0px;
+    height: 30px;
+    padding-bottom: 56px;
 }
 
 .dashpage-inner {
     display: flex;
     flex-direction: horizontal;
-    padding-top: 20px;
 }
 
 .dashpage-create {
@@ -41,7 +46,7 @@
 }
 
 .dashpage-button-top {
-    padding-bottom: 10px;
+    padding-bottom: 32px;
     font-weight: bold;
     font-size: 20px;
 }

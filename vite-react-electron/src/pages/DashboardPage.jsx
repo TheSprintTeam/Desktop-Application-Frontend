@@ -1,12 +1,18 @@
-import "../assets/css/DashboardPage.css";
+import {useNavigate} from "react-router-dom";
 import Button from "../components/Button";
+import "../assets/css/DashboardPage.css";
 
 import { FaPlus, FaPeopleGroup } from "react-icons/fa6"
 
 export default function DashboardPage() {
+    const navigate = useNavigate();
 
-    function handleClick() {
-        console.log("button was click!");
+    function handleClickCreate() {
+        navigate("/create-team");
+    }
+
+    function handleClickJoin() {
+        navigate("/join-team");
     }
 
     return (
@@ -16,11 +22,11 @@ export default function DashboardPage() {
             <div className="dashpage-inner">
                 <div className="dashpage-create">
                     <div className="dashpage-button-top">Create a Team</div>
-                    <Button onClick={handleClick} type={"submit"} className={"button-welcome"} children={<FaPlus />}/>
+                    <Button onClick={handleClickCreate} type={"submit"} className={"button-welcome"} children={<FaPlus />}/>
                 </div>
                 <div className="dashpage-join">
                     <div className="dashpage-button-top">Join a Team</div>
-                    <Button onClick={handleClick} type={"submit"} className={"button-welcome"} children={<FaPeopleGroup />}/>
+                    <Button onClick={handleClickJoin} type={"submit"} className={"button-welcome"} children={<FaPeopleGroup />}/>
                 </div>
             </div>
         </div>
