@@ -3,9 +3,18 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
   background-color: #ffffff;
+
+  /* CUSTOM COLORS */
+  --purple: #550080;
+  --light-purple: #9f7aea;
+  --light-purple-opa2: rgba(159, 122, 234, 0.2);
+  --light-purple-opa8: rgba(159, 122, 234, 0.8);
+  --gray: #6d7076;
+  --gray-opa2: rgba(109,112,118, 0.2);
+  --gray-op8: rgba(109,112,118, 0.8);
+  --light-gray: #cbd5e0;
+  --light-white: #f7fafc;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
