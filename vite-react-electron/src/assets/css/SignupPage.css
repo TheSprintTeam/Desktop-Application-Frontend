@@ -1,0 +1,166 @@
+.signup-outer {
+    background-color: #fff;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 120px;
+}
+
+.signup-title {
+    font-size: 48px;
+    font-weight: bold;
+    margin: 0px;
+    height: 62px;
+    padding-bottom: 24px;
+}
+
+.signup-desc {
+    font-size: 22px;
+    font-weight: medium;
+    margin: 0px;
+    height: 30px;
+    padding-bottom: 56px;
+}
+
+.signup-inner {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #cbd5e0;
+    padding: 16px;
+    border-radius: 8px;
+    width: 342px;
+    max-width: 342px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.signup-button-divider {
+    padding: 8px;
+}
+
+.external-provider {
+    display: flex;
+    flex-direction: row;
+    max-height: 20px;
+    line-height: 20px;
+    padding: 8px;
+}
+
+.external-provider>span {
+    padding-right: 8px;
+}
+
+.divider-container {
+    text-align: center;
+    position: relative;
+    padding-top: 16px;
+    color: var(--gray);
+}
+
+.line {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.divider-container:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    border-top: 1px solid var(--gray-opa2);
+    background: black;
+    width: 100%;
+    transform: translateY(-50%);
+}
+
+.line-or {
+    width: 60px;
+    height: 30px;
+    background: #fff;
+}
+
+.email-input-field {
+    margin-bottom: 16px;
+    height: 48px;
+    border: 1px solid var(--gray-opa2);
+    font-size: 20px;
+    border-radius: 8px;
+    padding: 0px 8px;
+}
+
+.email-input-field:focus {
+    outline: 2px solid var(--gray);
+}
+
+.email-input-field::placeholder {
+    color: rgba(109,112,118, 0.6);
+    font-weight: bold;
+}
+
+.login-click {
+    cursor: pointer;
+}
+
+.signup-bottom {
+    padding-top: 8px;
+}
+
+.input-field-container {
+    width: 100%;
+}
+
+/* SECOND SCREEN */
+.input-field-title {
+    font-weight: bold;
+}
+
+.signup-input-field {
+    margin-bottom: 16px;
+    height: 48px;
+    border: 1px solid var(--gray-opa2);
+    font-size: 20px;
+    border-radius: 8px;
+    width: 324px;
+    padding: 0px 8px;
+}
+
+.external-div {
+    display: flex;
+    flex-direction: row;
+    max-height: 16px;
+    line-height: 16px;
+}
+
+.external-div>span {
+    padding-right: 6px;
+}
+
+.password-wrapper {
+    position: relative;
+    display: flex;
+    padding: 0px;
+    margin: 0px;
+}
+
+.password-visibility {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    right: 2%;
+    top: 8%;
+}
+
+.password-visibility:hover {
+    cursor: pointer;
+    background-color: var(--gray-opa2);
+}
+
+/* THIRD SCREEN */

@@ -1,9 +1,9 @@
 /* Button Styling for Dashboard Welcome Page */
 .button-welcome {
-    background-color: #f7fafc;
-    color: rgba(109,112,118, 0.2);
+    background-color: var(--light-white);
+    color: var(--gray-opa2);
     font-size: 120px;
-    border: 2px dashed rgba(109,112,118, 0.2);
+    border: 2px dashed var(--gray-opa2);
     height: 200px;
     width: 200px;
     padding: 0px;
@@ -12,14 +12,14 @@
 }
 
 .button-welcome:hover {
-    background-color: #9f7aea;
+    background-color: var(--light-purple);
     color: #fff;
     border: 2px dashed rgba(109,112,118, 0.5);
 }
 
 .button-welcome:focus {
-    background-color: rgba(159, 122, 234, 0.8);
-    border: 2px solid rgba(109,112,118, 0.2);
+    background-color: var(--light-purple-opa8);
+    border: 2px solid var(--gray-opa2);
     outline: none;
     transform: scale(0.9);
     box-shadow: 0 3px 15px -2px;
@@ -28,27 +28,101 @@
 
 /* Button Styling for Joining a Team */
 .button-submit {
-    background-color: #cbd5e0;
-    border: #cbd5e0;
+    background-color: var(--light-gray);
+    border: var(--light-gray);
     width: 300px;
     font-size: 30px;
     font-weight: bold;
     line-height: 36px;
     padding: 0px;
     transition: 0.3s;
+    margin: 4px;
 }
 
 .button-submit:hover {
-    background-color: #9f7aea;
+    background-color: var(--light-purple);
     color: #fff;
-    border: #9f7aea;
+    border: var(--light-purple);
 }
 
 .button-submit:focus {
-    background-color: rgba(159, 122, 234, 0.8);
-    border: 2px solid rgba(109,112,118, 0.2);
+    background-color: var(--light-purple-opa8);
+    border: 2px solid var(--gray-opa2);
     outline: none;
     transform: scale(0.9);
     box-shadow: 0 3px 15px -2px;
     color: #fff;
+}
+
+/* Button Styling for Sign Up Page */
+.button-external {
+    background-color: #fff;
+    color: rgba(109,112,118, 0.6);
+    font-size: 20px;
+    border: 1px solid var(--gray-opa2);
+    height: 48px;
+    width: 100%;
+    padding: 0px;
+    transition: 0.3s;
+    font-weight: bold;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 2px;
+}
+
+.button-external:hover {
+    background-color: #9f7aea;
+    color: #fff;
+    border: 1px solid rgba(109,112,118, 0.5);
+}
+
+.button-external:focus {
+    background-color: var(--light-purple-opa8);
+    border: 1px solid var(--gray-opa2);
+    outline: none;
+    box-shadow: 0 3px 15px -2px;
+    color: #fff;
+}
+
+.signup-button-next {
+    background-color: var(--light-purple);
+    border: 1px solid var(--gray-opa2);
+    font-size: 20px;
+    font-weight: bold;
+    height: 48px;
+    line-height: 10px;
+    outline: none;
+    box-shadow: 0 3px 15px -2px;
+    color: #fff;
+    transition: 0.3s;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 2px;
+}
+
+.signup-button-next:hover {
+    background-color: var(--light-purple-opa8);
+    border: 1px solid var(--gray-opa2);
+    outline: none;
+    box-shadow: 0 3px 15px -2px;
+    color: #fff;
+}
+
+.signup-button-next:focus {
+    outline: none;
+}
+
+.signup-button-back {
+    width: min-content;
+    background-color: #fff;
+    padding: 0px;
+    margin: 0px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 8px;
+    border: none;
+}
+
+.signup-button-back:hover {
+    outline: none;
+}
+
+.signup-button-back:focus {
+    outline: none;
 }

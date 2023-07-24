@@ -10,7 +10,7 @@ export default function Navbar() {
                 <li><NavLink to={"tbd"}>Link 3</NavLink></li>
             </ul>
             <div className="navbar-right">
-                <NavLink to={"/login"}>Login</NavLink>
+                <NavLink to={"/sign-up"}>Login</NavLink>
                 {/*<img src="/profile-icon.png" alt="Profile Icon" />*/}
             </div>
         </nav>
