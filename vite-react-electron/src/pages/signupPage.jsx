@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {Link} from "react-router-dom";
 import Button from "../components/Button";
-import { verifyUser } from "../api/auth";
+import { signUp, verifyUser } from "../api/auth";
 import "../assets/css/SignupPage.css";
 
 import { FaGoogle, FaMicrosoft, FaArrowLeft, FaEye, FaEyeSlash } from "react-icons/fa6"
@@ -26,18 +26,35 @@ export default function SignupPage() {
 
     }
 
-    function handleClickNext() {
-        setScreen(screen + 1);
-    }
-
     function handleClickBack() {
         setScreen(screen - 1);
     }
 
-    async function handleClickVerify() {
-        response = await verifyUser(OTPCode);
+    async function handleClickSubmit() {
+        let response = await signUp(account.email, account.password, account.firstname, account.lastname);
 
         // handle the response here
+        // if response is error display pop up saying there was an error creating account:
+        if (response.error) {
+            console.log("error creating account!");
+        } else {
+            // display that the user successfully created a team
+            console.log("success creating an account!");
+            setScreen(screen + 1);
+        }
+    }
+
+    async function handleClickVerify() {
+        let response = await verifyUser(OTPCode);
+
+        // handle the response here
+        if (response.error) {
+            console.log("error verifying account!");
+        } else {
+            // display that the user successfully created a team
+            console.log("success verifying account");
+            console.log(response.data);
+        }
     }
 
     let itemContent
@@ -56,16 +73,16 @@ export default function SignupPage() {
                         <div className="line-or">OR</div>
                     </div>
                 </div>
-                <input type="text" className="email-input-field" placeholder="Enter your email" value={account.email  ? account.email : ""}
+                <input type="text" className="email-input-field" placeholder="Enter your email" value={account.email ? account.email : ""}
                     onChange={e => setAccount({...account, email: e.target.value})}
                 />
-                <Button onClick={handleClickNext} type={"button"} className={"signup-button-next"} children={"Continue"}/>
+                <Button onClick={e => setScreen(screen + 1)} type={"button"} className={"signup-button-next"} children={"Continue"}/>
                 <div className="signup-bottom">
                     <div>Already have an account?</div>
                     <div className="login-click"><Link to="/login">Login</Link></div>
                 </div>
             </div>
-        )
+        );
     } else if (screen === 2) {
         itemContent = (
             <div className="signup-inner">
@@ -75,28 +92,28 @@ export default function SignupPage() {
                 <div className="signup-button-divider"></div>
                 <div className="input-field-container">
                     <div className="input-field-title">First Name</div>
-                    <input type="text" className="signup-input-field" value={account.firstname  ? account.firstname : ""}
+                    <input type="text" className="signup-input-field" value={account.firstname ? account.firstname : ""}
                         onChange={e => setAccount({...account, firstname: e.target.value})}
                     />
                 </div>
                 <div className="input-field-container">
                     <div className="input-field-title">Last Name</div>
-                    <input type="text" className="signup-input-field" value={account.lastname  ? account.lastname : ""}
+                    <input type="text" className="signup-input-field" value={account.lastname ? account.lastname : ""}
                         onChange={e => setAccount({...account, lastname: e.target.value})}
                     />
                 </div>
                 <div className="input-field-container">
                     <div className="input-field-title">Password</div>
                     <div className="password-wrapper">
-                        <input type={passwordVisible ? "text" : "password"} className="signup-input-field" value={account.password  ? account.password : ""}
+                        <input type={passwordVisible ? "text" : "password"} className="signup-input-field" value={account.password ? account.password : ""}
                             onChange={e => setAccount({...account, password: e.target.value})}
                         />
                         <i className="password-visibility" onClick={e => setPasswordVisible(!passwordVisible)}>{passwordVisible ? <FaEye /> : <FaEyeSlash />}</i>
                     </div>
                 </div>
-                <Button onClick={handleClickNext} type={"button"} className={"signup-button-next"} children={"Create Account"}/>
+                <Button onClick={handleClickSubmit} type={"button"} className={"signup-button-next"} children={"Create Account"}/>
             </div>
-        )
+        );
     } else if (screen === 3) {
         itemContent = (
             <div className="signup-inner">
@@ -106,12 +123,12 @@ export default function SignupPage() {
                 <div className="signup-button-divider"></div>
                 <div className="input-field-container">
                     <div className="input-field-title">Enter your one time passcode</div>
-                    <input type="text" className="signup-input-field" onChange={e => setOTPCode(e.target.value)}/>
+                    <input type="text" className="signup-input-field" value={OTPCode ? OTPCode : ""} onChange={e => setOTPCode(e.target.value)}/>
                 </div>
 
                 <Button onClick={handleClickVerify} type={"button"} className={"signup-button-next"} children={"Verify"}/>
             </div>
-        )
+        );
     }
 
     return (
