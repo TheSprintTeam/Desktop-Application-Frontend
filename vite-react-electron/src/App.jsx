@@ -7,7 +7,7 @@ import ErrorPage from './pages/ErrorPage';
 import SignupPage from './pages/signupPage.jsx';
 import LoginPage from './pages/LoginPage';
 import JoinTeamPage from './pages/JoinTeamPage';
-
+import SendInvitePage from './pages/SendInvitePage.jsx'
 function NavbarWrapper() {
   return (
     <div>
@@ -25,7 +25,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <DashboardPage />,
+        element: <SendInvitePage/>,
       },
       {
         path: "/sign-up",
