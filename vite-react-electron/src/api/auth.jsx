@@ -2,7 +2,7 @@ import axios from "axios";
 import {base_url, resolve} from "../utils/apiUtils";
 
 // POST Request for creating a user
-export async function signUp(email, password, firstName, lastName) {
+export async function createUser(email, password, firstName, lastName) {
     return await resolve(axios.post(base_url+"/users/register", {
         email: email, 
         password: password, 
@@ -11,38 +11,48 @@ export async function signUp(email, password, firstName, lastName) {
         user: "test", 
         ip: "0.0.0.0", 
         ssh_password: "test1"
+    }, {
+        withCredentials: true
     })
     .then(res => res.data));
 }
 
 // POST Request for logging in
-export async function login(email, password) {
+export async function loginUser(email, password) {
     return await resolve(axios.post(base_url+"/users/login", {
         email: email,
         password: password
+    }, {
+        withCredentials: true
     })
     .then(res => res.data));
 }
 
 // PUT Request for verifying a user
 export async function verifyUser(otp_code) {
-    return await resolve(axios.put(base_url+"/users/verify", {
-        otp_code: otp_code
-    })
+    return await resolve(axios.put(base_url+"/users/verify", null, { 
+        withCredentials: true,
+        params: {
+            otp_code: otp_code
+    }})
     .then(res => res.data));
 }
 
 // POST Request for logging out a user
 export async function logoutUser() {
-    return await resolve(axios.post(base_url+"/users/logout")
+    return await resolve(axios.post(base_url+"/users/logout", null, {
+        withCredentials: true
+    })
     .then(res => res.data));
 }
 
 // PUT Request for changing a password
-export async function changePassword(oldPassword, newPassword) {
+export async function changeUserPassword(oldPassword, newPassword) {
     return await resolve(axios.put(base_url+"/users/change_password", {
         old_password: oldPassword,
         new_password: newPassword
+    }, {
+        withCredentials: true
     })
     .then(res => res.data));
 }
