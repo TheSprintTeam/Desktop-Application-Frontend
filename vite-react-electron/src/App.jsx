@@ -6,6 +6,7 @@ import DashboardPage from './pages/DashboardPage';
 import ErrorPage from './pages/ErrorPage';
 import SignupPage from './pages/signupPage.jsx';
 import LoginPage from './pages/LoginPage';
+import ForgotPasswordPage from './pages/ForgotPasswordPage.jsx';
 import JoinTeamPage from './pages/JoinTeamPage';
 
 function NavbarWrapper() {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
         element: <LoginPage />,
       },
       {
+        path: "/forgot-password",
+        element: <ForgotPasswordPage />,
+      },
+      {
         path: "/join-team",
         element: <JoinTeamPage />,
       },
@@ -52,7 +57,7 @@ function App() {
 
   useEffect(() => {
     const checkUser = async () => {
-      const token = Cookies.get("token");
+      const token = Cookies.get("session-token");
       if (token !== null) {
         const userData = await getUser();
 
