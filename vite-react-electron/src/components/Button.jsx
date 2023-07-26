@@ -6,6 +6,7 @@ export default function Button({ onClick, type, className, children}) {
             onClick={onClick}
             type={type}
             className={className}
+            autoFocus={false}
         >
             {children}
         </button>

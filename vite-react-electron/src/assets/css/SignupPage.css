@@ -1,29 +1,3 @@
-.signup-outer {
-    background-color: #fff;
-    color: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding-top: 120px;
-}
-
-.signup-title {
-    font-size: 48px;
-    font-weight: bold;
-    margin: 0px;
-    height: 62px;
-    padding-bottom: 24px;
-}
-
-.signup-desc {
-    font-size: 22px;
-    font-weight: medium;
-    margin: 0px;
-    height: 30px;
-    padding-bottom: 56px;
-}
-
 .signup-inner {
     display: flex;
     flex-direction: column;
@@ -33,6 +7,13 @@
     width: 342px;
     max-width: 342px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.signup-inner-title {
+    display: flex;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: bold;
 }
 
 .signup-button-divider {
@@ -70,7 +51,7 @@
     position: absolute;
     top: 50%;
     left: 0;
-    border-top: 1px solid var(--gray-opa2);
+    border-top: 1px solid var(--gray);
     background: black;
     width: 100%;
     transform: translateY(-50%);
@@ -80,24 +61,7 @@
     width: 60px;
     height: 30px;
     background: #fff;
-}
-
-.email-input-field {
-    margin-bottom: 16px;
-    height: 48px;
-    border: 1px solid var(--gray-opa2);
-    font-size: 20px;
-    border-radius: 8px;
-    padding: 0px 8px;
-}
-
-.email-input-field:focus {
-    outline: 2px solid var(--gray);
-}
-
-.email-input-field::placeholder {
-    color: rgba(109,112,118, 0.6);
-    font-weight: bold;
+    color: var(--gray)
 }
 
 .login-click {
@@ -113,54 +77,43 @@
 }
 
 /* SECOND SCREEN */
-.input-field-title {
+
+
+/* Styling for Login Page */
+.login-page-title {
+    display: flex;
+    justify-content: center;
+    font-size: 28px;
     font-weight: bold;
 }
 
-.signup-input-field {
-    margin-bottom: 16px;
-    height: 48px;
-    border: 1px solid var(--gray-opa2);
-    font-size: 20px;
-    border-radius: 8px;
-    width: 324px;
-    padding: 0px 8px;
-}
-
-.external-div {
-    display: flex;
-    flex-direction: row;
-    max-height: 16px;
-    line-height: 16px;
-}
-
-.external-div>span {
-    padding-right: 6px;
-}
-
-.password-wrapper {
-    position: relative;
-    display: flex;
-    padding: 0px;
+.signup-input-field.login {
     margin: 0px;
 }
 
-.password-visibility {
-    font-size: 20px;
+.input-field-bottom {
+    margin-bottom: 16px;
+}
+
+.forgot-pass {
+    cursor: pointer;
+}
+
+.signup-bottom-redirect {
+    margin-top: 4px;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    border-radius: 50%;
-    height: 40px;
-    width: 40px;
-    right: 2%;
-    top: 8%;
 }
 
-.password-visibility:hover {
+.signup-bottom-link {
+    margin-left: 4px;
     cursor: pointer;
-    background-color: var(--gray-opa2);
 }
 
-/* THIRD SCREEN */
+.signup-inner-desc {
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

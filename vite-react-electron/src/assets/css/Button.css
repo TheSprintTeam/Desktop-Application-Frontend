@@ -57,29 +57,30 @@
 /* Button Styling for Sign Up Page */
 .button-external {
     background-color: #fff;
-    color: rgba(109,112,118, 0.6);
+    color: var(--gray);
     font-size: 20px;
     border: 1px solid var(--gray-opa2);
     height: 48px;
     width: 100%;
     padding: 0px;
-    transition: 0.3s;
     font-weight: bold;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 2px;
 }
 
 .button-external:hover {
-    background-color: #9f7aea;
-    color: #fff;
-    border: 1px solid rgba(109,112,118, 0.5);
+    /*background-color: #9f7aea;
+    color: #fff;*/
+    border: 1px solid var(--gray-opa2);
+    outline: 3px solid var(--light-purple-opa2);
 }
 
 .button-external:focus {
-    background-color: var(--light-purple-opa8);
-    border: 1px solid var(--gray-opa2);
+    background-color: var(--light-purple);
+    border: 1px solid var(--light-purple);
     outline: none;
     box-shadow: 0 3px 15px -2px;
     color: #fff;
+    transition: 0.3s ease-in-out;
 }
 
 .signup-button-next {
@@ -109,7 +110,7 @@
 }
 
 .signup-button-back {
-    width: min-content;
+    max-width: fit-content;
     background-color: #fff;
     padding: 0px;
     margin: 0px;
