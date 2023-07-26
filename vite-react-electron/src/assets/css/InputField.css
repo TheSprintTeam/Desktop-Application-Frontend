@@ -1,0 +1,61 @@
+/* Styling for Input Fields in Sign Up / Login / Forgot Password Pages */
+.input-field-title {
+    font-weight: bold;
+    color: var(--gray);
+}
+
+.signup-input-field {
+    margin-bottom: 16px;
+    height: 48px;
+    border: 1px solid var(--gray-opa2);
+    outline: 1px var(--gray-opa2);
+    font-size: 16px;
+    border-radius: 8px;
+    width: 324px;
+    padding: 0px 8px;
+}
+
+.signup-input-field:hover {
+    outline: 3px solid var(--light-purple-opa2);
+}
+
+.signup-input-field:focus {
+    outline: 3px solid var(--light-purple);
+    transition: 0.3s ease-in-out;
+}
+
+.external-div {
+    display: flex;
+    flex-direction: row;
+    max-height: 16px;
+    line-height: 16px;
+}
+
+.external-div>span {
+    padding-right: 6px;
+}
+
+.password-wrapper {
+    position: relative;
+    display: flex;
+    padding: 0px;
+    margin: 0px;
+}
+
+.password-visibility {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    right: 2%;
+    top: 8%;
+}
+
+.password-visibility:hover {
+    cursor: pointer;
+    background-color: var(--gray-opa2);
+}
