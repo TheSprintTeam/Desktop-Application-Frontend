@@ -4,19 +4,22 @@ import { createUser, verifyUser } from "../api/auth";
 import SignupForm from "../components/SignupForm";
 import Button from "../components/Button";
 import { InputField, InputFieldPassword } from "../components/InputFields";
+import { isEmpty } from "../utils/helpers";
 import "../assets/css/SignupPage.css";
 
 import { FaGoogle, FaMicrosoft, FaArrowLeft } from "react-icons/fa6"
 
 export default function SignupPage() {
-    const [screen, setScreen] = useState(1);
-    const [OTPCode, setOTPCode] = useState("");
-    const [account, setAccount] = useState({
+    const accountInfo = {
         "email": "",
         "firstname": "",
         "lastname": "",
         "password": "",
-    });
+    }
+    const [screen, setScreen] = useState(1);
+    const [OTPCode, setOTPCode] = useState("");
+    const [account, setAccount] = useState(accountInfo)
+    const [showError, setShowError] = useState({ ...accountInfo});
     
     async function handleClickGoogle(e) {
         e.preventDefault();
@@ -30,6 +33,16 @@ export default function SignupPage() {
     function handleClickBack() {
         setScreen(screen - 1);
     }
+
+    function handleInputChange(e) {
+        const { name, value } = e.target;
+        setAccount((prevInputs) => ({ ...prevInputs, [name]: value}))
+        
+        // set error if input is not filled
+        setShowError((prevErrors) => ({ ...prevErrors, [name]: isEmpty(value)}))
+    }
+
+    console.log(account);
 
     async function handleClickSubmit() {
         let response = await createUser(account.email, account.password, account.firstname, account.lastname);
@@ -78,14 +91,15 @@ export default function SignupPage() {
                 </div>
                 <div className="input-field-container">
                     <div className="input-field-title">Email Address</div>
-                    <InputField className="signup-input-field" autoFocus={true} value={account.email ? account.email : ""}
-                        onChange={e => setAccount({...account, email: e.target.value})}
+                    <InputField name="email" className="signup-input-field" autoFocus={true} value={account.email ? account.email : ""}
+                        onChange={handleInputChange}
                     />
+                    {showError.email && <div className="input-error">Email address is required</div>}
                 </div>
                 <Button onClick={e => setScreen(screen + 1)} type={"button"} className={"signup-button-next"} children={"Continue"}/>
                 <div className="signup-bottom">
                     <div>Already have an account?</div>
-                    <div className="login-click"><Link to="/login">Login</Link></div>
+                    <div><Link to="/login" className="login-click">Login</Link></div>
                 </div>
             </div>
         );
@@ -98,21 +112,24 @@ export default function SignupPage() {
                 <div className="signup-button-divider"></div>
                 <div className="input-field-container">
                     <div className="input-field-title">First Name</div>
-                    <InputField className="signup-input-field" value={account.firstname ? account.firstname : ""}
-                        onChange={e => setAccount({...account, firstname: e.target.value})}
+                    <InputField name="firstname" className="signup-input-field" value={account.firstname ? account.firstname : ""}
+                        onChange={handleInputChange}
                     />
+                    {showError.firstname && <div className="input-error">First name is required</div>}
                 </div>
                 <div className="input-field-container">
                     <div className="input-field-title">Last Name</div>
-                    <InputField className="signup-input-field" value={account.lastname ? account.lastname : ""}
-                        onChange={e => setAccount({...account, lastname: e.target.value})}
+                    <InputField name="lastname" className="signup-input-field" value={account.lastname ? account.lastname : ""}
+                        onChange={handleInputChange}
                     />
+                    {showError.lastname && <div className="input-error">Last name is required</div>}
                 </div>
                 <div className="input-field-container">
                     <div className="input-field-title">Password</div>
                     <InputFieldPassword className={"signup-input-field"} value={account.password ? account.password : ""} 
-                        onChange={e => setAccount({...account, password: e.target.value})}
+                        onChange={handleInputChange}
                     />
+                    {showError.password && <div className="input-error">Password must be at least 8 characters</div>}
                 </div>
                 <Button onClick={handleClickSubmit} type={"submit"} className={"signup-button-next"} children={"Create Account"}/>
             </div>

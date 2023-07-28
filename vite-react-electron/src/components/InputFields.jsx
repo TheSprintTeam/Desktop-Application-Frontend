@@ -2,11 +2,12 @@ import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6"
 import "../assets/css/InputField.css";
 
-export function InputField({ type, className, value, placeholder, autoFocus, onChange}) {
+export function InputField({ type, name, className, value, placeholder, autoFocus, onChange}) {
 
     return (
         <input
             type={type ? type : "text"}
+            name={name}
             className={className}
             value={value}
             placeholder={placeholder ? placeholder : ""}
@@ -23,6 +24,7 @@ export function InputFieldPassword({ className, value, onChange }) {
         <div className="password-wrapper">
             <input 
             type={passwordVisible ? "text" : "password"}
+            name="password"
             className={className}
             value={value}
             onChange={onChange}

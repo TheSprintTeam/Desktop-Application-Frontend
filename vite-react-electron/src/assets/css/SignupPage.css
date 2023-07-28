@@ -111,9 +111,20 @@
     cursor: pointer;
 }
 
-.signup-inner-desc {
+.signup-inner-desc-container {
     font-size: 16px;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
+}
+
+.input-error {
+    margin-top: -16px;
+    padding-bottom: 8px;
+    color: lightcoral;
+}
+
+.input-error-login {
+    color: lightcoral;
 }

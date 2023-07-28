@@ -55,9 +55,11 @@ export default function ForgotPasswordPage() {
                 }/>
                 <div className="signup-button-divider"></div>
                 <div className="signup-inner-title">Reset your password</div>
-                <div className="signup-inner-desc">
-                    To reset your password, enter your email below and submit. You will be moved onto the next page 
-                    where you will have to enter the temporary password emailed to you and create a new password.
+                <div className="signup-inner-desc-container">
+                    <div className="signup-inner-desc">
+                        To reset your password, enter your email below and submit. You will be moved onto the next page 
+                        where you will have to enter the temporary password emailed to you and create a new password.
+                    </div>
                 </div>
                 <div className="signup-button-divider"></div>
                 <div className="input-field-container">

@@ -1,18 +1,19 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { changePassword, loginUser } from "../api/auth";
+import { Link } from "react-router-dom";
+import { loginUser } from "../api/auth";
 import SignupForm from "../components/SignupForm";
 import Button from "../components/Button";
+import { isEmpty } from "../utils/helpers";
 import { InputField, InputFieldPassword } from "../components/InputFields";
 import "../assets/css/SignupPage.css";
 
 export default function LoginPage() {
-    const [account, setAccount] = useState({
+    const accountInfo = {
         "email": "",
         "password": "",
-    });
-
-    const navigate = useNavigate();
+    }
+    const [account, setAccount] = useState(accountInfo);
+    const [showError, setShowError] = useState({ ...accountInfo});
 
     async function handleClickSubmitLogin() {
         let response = await loginUser(account.email, account.password);
@@ -28,6 +29,14 @@ export default function LoginPage() {
         }
     }
 
+    function handleInputChange(e) {
+        const { name, value } = e.target;
+        setAccount((prevInputs) => ({ ...prevInputs, [name]: value}))
+        
+        // set error if input is not filled
+        setShowError((prevErrors) => ({ ...prevErrors, [name]: isEmpty(value)}))
+    }
+
     return (
         <>
             <SignupForm children={
@@ -36,15 +45,17 @@ export default function LoginPage() {
                     <div className="signup-button-divider"></div>
                     <div className="input-field-container">
                         <div className="input-field-title">Email Address</div>
-                        <InputField className="signup-input-field" value={account.firstname ? account.firstname : ""} 
-                            onChange={e => setAccount({...account, firstname: e.target.value})}
+                        <InputField name="email" className="signup-input-field" value={account.email ? account.email: ""} 
+                            onChange={handleInputChange}
                         />
+                        {showError.email && <div className="input-error">Email address is required</div>}
                     </div>
                     <div className="input-field-container">
                         <div className="input-field-title">Password</div>
                         <InputFieldPassword className="signup-input-field login" value={account.password ? account.password : ""} 
-                            onChange={e => setAccount({...account, password: e.target.value})}
+                            onChange={handleInputChange}
                         />
+                        {showError.password && <div className="input-error-login">Password must be at least 8 characters</div>}
                         <div className="input-field-bottom"><Link to="/forgot-password" className="forgot-pass">Forgot password?</Link></div>
                     </div>
                     <Button onClick={handleClickSubmitLogin} type={"button"} className={"signup-button-next"} children={"Login"}/>
