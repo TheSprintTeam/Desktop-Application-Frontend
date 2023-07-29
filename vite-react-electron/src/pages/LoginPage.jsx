@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import { loginUser } from "../api/auth";
 import SignupForm from "../components/SignupForm";
 import Button from "../components/Button";
-import { isEmpty } from "../utils/helpers";
+import PopupModal from "../components/PopupModal";
 import { InputField, InputFieldPassword } from "../components/InputFields";
+import { isEmpty } from "../utils/helpers";
 import "../assets/css/SignupPage.css";
 
 export default function LoginPage() {
@@ -14,6 +15,11 @@ export default function LoginPage() {
     }
     const [account, setAccount] = useState(accountInfo);
     const [showError, setShowError] = useState({ ...accountInfo});
+    const [modalContent, setModalContent] = useState({
+        "title": "",
+        "children": "",
+        "showModal": false,
+    });
 
     async function handleClickSubmitLogin() {
         let response = await loginUser(account.email, account.password);
@@ -21,11 +27,21 @@ export default function LoginPage() {
         // handle the response here
         // if response is error display pop up saying there was an error creating account:
         if (response.error) {
-            console.log("error creating account!");
+            console.log("error logging in to account!");
+            setModalContent({
+                title: "Error",
+                children: "There was an error logging in to your account, please try again. Error: " + response.error,
+                showModal: true
+            });
         } else {
             // display that the user successfully created a team
             console.log("success logging in!");
-            setScreen(screen + 1);
+            setModalContent({
+                title: "Success",
+                children: "You have successfully logged in to your account! Redirecting you back to the home page in 3 seconds.",
+                showModal: true
+            });
+            // redirect to home page
         }
     }
 
@@ -64,7 +80,9 @@ export default function LoginPage() {
                         <Link to="/sign-up" className="signup-bottom-link">Sign up</Link>
                     </div>
                 </div>
-            }
+            } />
+            <PopupModal title={modalContent.title} open={modalContent.showModal} children={modalContent.children}
+                onClose={() => setModalContent({title: "", children: "", showModal: false})} 
             />
         </>
     );

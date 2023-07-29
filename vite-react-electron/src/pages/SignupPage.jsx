@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { createUser, verifyUser } from "../api/auth";
 import SignupForm from "../components/SignupForm";
 import Button from "../components/Button";
+import PopupModal from "../components/PopupModal";
 import { InputField, InputFieldPassword } from "../components/InputFields";
 import { isEmpty } from "../utils/helpers";
 import "../assets/css/SignupPage.css";
@@ -18,12 +19,17 @@ export default function SignupPage() {
     }
     const [screen, setScreen] = useState(1);
     const [OTPCode, setOTPCode] = useState("");
-    const [account, setAccount] = useState(accountInfo)
+    const [account, setAccount] = useState(accountInfo);
     const [showError, setShowError] = useState({ ...accountInfo});
+    const [modalContent, setModalContent] = useState({
+        "title": "",
+        "children": "",
+        "showModal": false,
+    });
     
     async function handleClickGoogle(e) {
         e.preventDefault();
-        window.open("http://127.0.0.1:8000/google-signin")
+        window.open("http://127.0.0.1:8000/google-signin");
     }
 
     function handleClickMicrosoft() {
@@ -42,8 +48,6 @@ export default function SignupPage() {
         setShowError((prevErrors) => ({ ...prevErrors, [name]: isEmpty(value)}))
     }
 
-    console.log(account);
-
     async function handleClickSubmit() {
         let response = await createUser(account.email, account.password, account.firstname, account.lastname);
 
@@ -51,6 +55,11 @@ export default function SignupPage() {
         // if response is error display pop up saying there was an error creating account:
         if (response.error) {
             console.log("error creating account!");
+            setModalContent({
+                title: "Error",
+                children: "There was an error creating your account, please try again. Error: " + response.error,
+                showModal: true
+            });
         } else {
             // display that the user successfully created a team
             console.log("success creating an account!");
@@ -64,12 +73,25 @@ export default function SignupPage() {
         // handle the response here
         if (response.error) {
             console.log("error verifying account!");
+            setModalContent({
+                title: "Error",
+                children: "There was an error verifying your account, please try again. Error: " + response.error,
+                showModal: true
+            });
         } else {
             // display that the user successfully created a team
             console.log("success verifying account");
             console.log(response.data);
+            setModalContent({
+                title: "Success",
+                children: "You have successfully verified your account and can start using Sprint! Redirecting you back to the home page in 3 seconds.",
+                showModal: true
+            });
+            // redirect to home page
         }
     }
+
+    console.log(modalContent.showModal);
 
     let itemContent
     if (screen === 1) {
@@ -153,6 +175,9 @@ export default function SignupPage() {
     return (
         <>
             <SignupForm children={itemContent} />
+            <PopupModal title={modalContent.title} open={modalContent.showModal} children={modalContent.children}
+                onClose={() => setModalContent({title: "", children: "", showModal: false})} 
+            />
         </>
     );
 }
