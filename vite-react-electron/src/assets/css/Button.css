@@ -127,3 +127,23 @@
 .signup-button-back:focus {
     outline: none;
 }
+
+/* Popup Modal Button */
+.modal-exit {
+    max-width: fit-content;
+    background-color: #fff;
+    padding: 0px;
+    margin: 0px;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 8px;
+    border: none;
+}
+
+.modal-exit:hover {
+    outline: none;
+}
+
+.modal-exit:focus {
+    outline: none;
+}
