@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6"
 import "../assets/css/InputField.css";
 
-export function InputField({ type, name, className, value, placeholder, autoFocus, onChange}) {
+export function InputField({ type, name, className, value, placeholder, autoFocus, onChange, onKeyUp}) {
 
     return (
         <input
@@ -13,6 +13,7 @@ export function InputField({ type, name, className, value, placeholder, autoFocu
             placeholder={placeholder ? placeholder : ""}
             autoFocus={autoFocus ? autoFocus : false}
             onChange={onChange}
+            onKeyUp={onKeyUp}
         />
     );
 }
