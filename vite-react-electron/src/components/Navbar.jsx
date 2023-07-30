@@ -3,7 +3,7 @@ import "../assets/css/Navbar.css";
 
 export default function Navbar() {
     return (
-        <nav>
+        <nav className="top-nav">
             <ul className="navbar-left">
                 <li><NavLink to={"/"} className="sprint-icon">&lt;&#47;&gt;</NavLink></li>
                 <li><NavLink to={"tbd"}>Link 2</NavLink></li>
