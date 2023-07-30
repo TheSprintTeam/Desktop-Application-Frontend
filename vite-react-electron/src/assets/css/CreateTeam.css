@@ -1,0 +1,28 @@
+.create-team-container {
+    margin-left: 35rem;
+    padding-right: 160px;
+}
+
+.create-team-title {
+    padding-top: 25px;
+}
+
+.create-team-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.external-div-create-left, .external-div-create-right {
+    display: flex;
+    flex-direction: row;
+    max-height: 16px;
+    line-height: 16px;
+}
+
+.external-div-create-left>span {
+    padding-right: 6px;
+}
+
+.external-div-create-right>span {
+    padding-left: 6px;
+}
