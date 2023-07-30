@@ -147,3 +147,25 @@
 .modal-exit:focus {
     outline: none;
 }
+
+/* Buttons for Create Team */
+.create-button-backnext {
+    max-width: fit-content;
+    background-color: var(--light-purple);
+    border: 1px solid var(--gray-opa2);
+    font-weight: bold;
+    height: 36px;
+    outline: none;
+    box-shadow: 0 3px 15px -2px;
+    color: #fff;
+    transition: 0.3s;
+    margin: 0px;
+    line-height: 8px;
+}
+
+.create-button-backnext:hover {
+    background-color: var(--light-purple-opa8);
+    border: 1px solid var(--gray-opa2);
+    outline: none;
+    color: #fff;
+}
