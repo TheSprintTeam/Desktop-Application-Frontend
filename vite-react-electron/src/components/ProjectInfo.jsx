@@ -31,6 +31,12 @@ export default function ProjectInfo({ project, onProjectChange }) {
         <>
             <div className="create-team-inner">
                 <div className="create-input-field-container">
+                    <div className="create-input-field-title">Name</div>
+                    <InputField name="name" className="create-team-field" autoFocus={true} value={project.name ? project.name : ""}
+                        onChange={handleInputChange}
+                    />
+                </div>
+                <div className="create-input-field-container">
                     <div className="create-input-field-title">Project Description</div>
                     <InputField name="description" className="create-team-field" autoFocus={true} value={project.description ? project.description : ""}
                         onChange={handleInputChange}
