@@ -13,6 +13,10 @@ export default function CreateTeam({ title, children, screen, onChangeScreen }) 
         onChangeScreen(screen - 1);
     }
 
+    const handleSubmitClick = () => {
+        // handles submitting to backend
+    }
+
     
     return (
         <div className="create-team-container">
@@ -22,9 +26,15 @@ export default function CreateTeam({ title, children, screen, onChangeScreen }) 
                 <Button onClick={handleBackClick} type={"button"} className={"create-button-backnext"} disabled={screen === 1} children={
                     <div className="external-div-create-left"><span className="external-icon-create"><FaArrowLeft /></span>Back</div>
                 }/>
+                { screen === 2 ?
+                <Button onClick={handleSubmitClick} type={"button"} className={"create-button-backnext"} children={
+                    <div className="external-div-create-right">Submit<span className="external-icon-create"><FaArrowRight /></span></div>
+                }/> : 
                 <Button onClick={handleNextClick} type={"button"} className={"create-button-backnext"} children={
                     <div className="external-div-create-right">Next<span className="external-icon-create"><FaArrowRight /></span></div>
                 }/>
+                }
+
             </div>
         </div>
     );
