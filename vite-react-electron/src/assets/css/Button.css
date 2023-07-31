@@ -1,3 +1,12 @@
+/* Style Disabled Button */
+button:disabled {
+    cursor: not-allowed;
+    background-color: #c4c4c4;
+}
+button:disabled:hover {
+    background-color: #c4c4c4;
+}
+
 /* Button Styling for Dashboard Welcome Page */
 .button-welcome {
     background-color: var(--light-white);
