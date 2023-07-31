@@ -10,9 +10,11 @@ import "../assets/css/SignupPage.css";
 
 import { FaArrowLeft } from "react-icons/fa6"
 import ProjectInfo from "../components/ProjectInfo";
+import ReviewCreateTeam from "../components/ReviewCreateTeam";
 
 export default function CreateTeamPage() {
     const projectInfo = {
+        "name": "",
         "description": "",
         "technologies": [],
         "timeframe": "",
@@ -26,8 +28,8 @@ export default function CreateTeamPage() {
     });
     const [project, setProject] = useState(projectInfo);
 
-    function handleClickBack() {
-        setScreen(screen - 1);
+    const handleChangeScreen = (newScreen) => {
+        setScreen(newScreen);
     }
 
     function handleInputChange(e) {
@@ -48,16 +50,17 @@ export default function CreateTeamPage() {
     let itemContent
     if (screen === 1) {
         titleContent = "Project Info"
-        itemContent = (<ProjectInfo project={project} onProjectChange={setProject} />);
+        itemContent = (<ProjectInfo project={project} onProjectChange={setProject}/>);
     } else if (screen === 2) {
-        itemContent = (<div/>);
+        titleContent = "Review"
+        itemContent = (<ReviewCreateTeam project={project}/>);
     } else if (screen === 3) {
         itemContent = (<div/>);
     }
 
     return (
         <>
-            <CreateTeam title={titleContent} children={itemContent}/>
+            <CreateTeam title={titleContent} children={itemContent} screen={screen} onChangeScreen={handleChangeScreen}/>
             <PopupModal title={modalContent.title} open={modalContent.showModal} children={modalContent.children}
                 onClose={() => setModalContent({title: "", children: "", showModal: false})} 
             />
