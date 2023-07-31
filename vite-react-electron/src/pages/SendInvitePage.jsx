@@ -21,8 +21,8 @@ const SendInvitePage = () => {
     
   };
 
-  const roleOptions = ['Select a role', 'Admin', 'Manager', 'Employee'];
-
+  const roleOptions = ['Select a role', 'admin', 'manager', 'Employee'];
+  
   return (
     <div class = "outer">
       <h2 class = "Title"> Send an invite</h2>

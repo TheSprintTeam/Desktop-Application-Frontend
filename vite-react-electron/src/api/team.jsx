@@ -58,3 +58,9 @@ export async function storeTeamPrompt(team_id, prompt) {
     })
     .then(res => res.data));
 }
+
+//POST Request for team install
+export async function installOnTeam(team_id) {
+    return await resolve(axios.post(base_url+"teamInstall/"+{team_id}))
+    .then(res => res.data);
+}

@@ -8,6 +8,8 @@ import SignupPage from './pages/signupPage.jsx';
 import LoginPage from './pages/LoginPage';
 import JoinTeamPage from './pages/JoinTeamPage';
 import SendInvitePage from './pages/SendInvitePage.jsx'
+import ClickInstall from './pages/clickInstall';
+
 function NavbarWrapper() {
   return (
     <div>
@@ -25,7 +27,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <SendInvitePage/>,
+        element: <ClickInstall/>,
       },
       {
         path: "/sign-up",
