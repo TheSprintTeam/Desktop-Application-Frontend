@@ -10,7 +10,7 @@ import Desktop6 from '../views/desktop6';
 import Desktop8 from '../views/desktop8';
 import Desktop9 from '../views/desktop9';
 import Desktop10 from '../views/desktop10';
-
+import UserForm from './pages/CreateTeamPage';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <DashboardPage />,
+        element: <UserForm/>,
       },
       {
         path: "/login",
