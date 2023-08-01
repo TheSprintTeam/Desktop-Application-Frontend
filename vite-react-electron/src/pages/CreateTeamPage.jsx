@@ -3,13 +3,7 @@ import '../assets/css/inviteForm.css';
 
 
 export default function UserForm() {
-  const [screen, setScreen] = useState(1);
-  function handleClickBack() {
-    setScreen(screen-1);
-  }
-  function handleClickForward(){
-    setScreen(screen+1);
-  }
+  
   const [formData, setFormData] = useState({
     users: [
       { name: '', userRole: '', email: '' },
@@ -62,26 +56,6 @@ export default function UserForm() {
 
   const textStyle = { color: 'black' };
   const options = ['One', 'Two', 'Three', 'Four', 'Five'];
-  let itemContent
-  if (screen===1){
-    itemContent = (
-      <div></div>
-    );
-  } else if (screen===2){
-    itemContent = (
-      <div></div>
-    );
-  } else if (screen === 3){
-    itemContent = (
-      <div></div>
-    );
-  }
-  //
-  return(
-    <>
-    {itemContent}
-    </>
-  );
 
   return (
     <div className="user-form">
@@ -145,12 +119,12 @@ export default function UserForm() {
         <button
           type="button"
           onClick={handleAddUser}
-          style={formData.users.every(user => user.name && user.userRole && user.email) ? textStyle : { ...textStyle, pointerEvents: 'none', opacity: 0.5 }}
+          style={formData.users.every(user => user.name && user.userRole && user.email) ? textStyle : { color:'white', pointerEvents: 'none', opacity: 0.5 }}
           className="add-user-button"
         >
           Add User
         </button>
-        <button type="submit" style={textStyle} className="submit-button">Submit All Users</button>
+        <button type="submit" style={{color:'white'}} className="submit-button">Submit All Users</button>
       </form>
     </div>
   );
