@@ -178,3 +178,7 @@ button:disabled:hover {
     outline: none;
     color: #fff;
 }
+
+.create-button-backnext:focus {
+    outline: none;
+}
