@@ -1,6 +1,6 @@
 import Accordion from "./Accordion"
 
-export default function ReviewCreateTeam({ project }) {
+export default function ReviewCreateTeam({ project , invites }) {
     
     return (
         <>
@@ -24,9 +24,26 @@ export default function ReviewCreateTeam({ project }) {
                     </div>
                 </>
             }/>
-            {/*<Accordion title="Invitations" children={
+            {<Accordion title="Invitations" children={
+                invites.users.map((user, index) =>
+                <>
+                <div className="invite">
+                <div className="accordion-key-value-container">
+                        <div className="accordion-key">Name</div>
+                        <div className="accordion-value">{user.name}</div>
+                    </div>
+                    <div className="accordion-key-value-container">
+                        <div className="accordion-key">User Role</div>
+                        <div className="accordion-value">{user.userRole}</div>
+                    </div>
+                    <div className="accordion-key-value-container">
+                        <div className="accordion-key">Email</div>
+                        <div className="accordion-value">{project.timeframe}</div>
+                    </div>
+                </div>
+                </>)
                 
-            }/>*/}
+            }/>}
         </>
     )
 }

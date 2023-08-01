@@ -1,0 +1,81 @@
+/* Styling for the UserForm component */
+.user-form {
+  width: 400px;
+  margin: 0 0;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: black; /* Set font color to black */
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-section {
+  margin-bottom: 10px;
+}
+
+.user-summary {
+  cursor: pointer;
+  padding: 5px 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.user-details {
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.user-details .form-label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.user-details .form-input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  background-color: white; /* Set input field background color to white */
+  color: black; /* Set input text color to black */
+}
+
+.error-message {
+  color: red;
+  margin: 5px 0;
+}
+
+.clear-button,
+.delete-button {
+  cursor: pointer;
+  color: black;
+  background-color: #f0f0f0;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.add-user-button,
+.submit-button {
+  cursor: pointer;
+  background-color: #550880;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.add-user-button:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}

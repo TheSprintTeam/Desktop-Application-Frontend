@@ -7,7 +7,7 @@ import PopupModal from "../components/PopupModal";
 import { InputField, InputFieldPassword } from "../components/InputFields";
 import { isEmpty } from "../utils/helpers";
 import "../assets/css/SignupPage.css";
-
+import {SendInvites} from "../components/SendInvites"
 import { FaArrowLeft } from "react-icons/fa6"
 import ProjectInfo from "../components/ProjectInfo";
 import ReviewCreateTeam from "../components/ReviewCreateTeam";
@@ -19,6 +19,17 @@ export default function CreateTeamPage() {
         "technologies": [],
         "timeframe": "",
     }
+    const [invites, setFormDataInParent] = useState({
+      users: [
+        { name: '', userRole: '', email: '' },
+      ],
+    });
+
+    const onFormChange = (formData) => {
+    // Update the parent component's state whenever there are changes in the child component
+       setFormDataInParent(formData);
+    };
+
     const [screen, setScreen] = useState(1);
     //const [showError, setShowError] = useState({ ...accountInfo});
     const [modalContent, setModalContent] = useState({
@@ -52,12 +63,12 @@ export default function CreateTeamPage() {
         titleContent = "Project Info"
         itemContent = (<ProjectInfo project={project} onProjectChange={setProject}/>);
     } else if (screen === 2) {
+      titleContent = "Send Invititations to Team"
+      itemContent = (<SendInvites onFormChange = {onFormChange}/>);
+    }else if (screen === 3) {
         titleContent = "Review"
-        itemContent = (<ReviewCreateTeam project={project}/>);
-    } else if (screen === 3) {
-        itemContent = (<div/>);
-    }
-
+        itemContent = (<ReviewCreateTeam project={project} invites = {invites}/>);
+    } 
     return (
         <>
             <CreateTeam title={titleContent} children={itemContent} screen={screen} onChangeScreen={handleChangeScreen}/>
