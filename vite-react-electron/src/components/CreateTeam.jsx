@@ -4,7 +4,7 @@ import PopupModal from "./PopupModal";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 import { isEmptyObjectField } from "../utils/helpers";
 import "../assets/css/CreateTeam.css";
-
+import {createTeam, inviteUserToTeam} from "..api/team.jsx"
 export default function CreateTeam({ title, children, screen, onChangeScreen, project, invites }) {
     
     const [modalContent, setModalContent] = useState({
@@ -29,10 +29,17 @@ export default function CreateTeam({ title, children, screen, onChangeScreen, pr
         onChangeScreen(screen - 1);
     }
 
-    const handleSubmitClick = () => {
+    const handleSubmitClick = async () => {
         // handles submitting to backend
-        console.log(project);
-        console.log(invites);
+        const formData = {
+            "technologies" : project.technologies,
+            "description" : project.description
+        };
+
+        let team_id = await createTeam(project.name, formData );
+        invites.forEach((user) => {
+            inviteUserToTeam(team_id, user.email, user.userRole)
+        });
     }
     
     return (
