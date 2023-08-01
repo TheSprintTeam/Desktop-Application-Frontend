@@ -29,40 +29,38 @@ export default function ProjectInfo({ project, onProjectChange }) {
 
     return (
         <>
-            <div className="create-team-inner">
-                <div className="create-input-field-container">
-                    <div className="create-input-field-title">Name</div>
-                    <InputField name="name" className="create-team-field" autoFocus={true} value={project.name ? project.name : ""}
-                        onChange={handleInputChange}
-                    />
+            <div className="create-input-field-container">
+                <div className="create-input-field-title">Name</div>
+                <InputField name="name" className="create-team-field" autoFocus={true} value={project.name ? project.name : ""}
+                    onChange={handleInputChange}
+                />
+            </div>
+            <div className="create-input-field-container">
+                <div className="create-input-field-title">Project Description</div>
+                <InputField name="description" className="create-team-field" autoFocus={true} value={project.description ? project.description : ""}
+                    onChange={handleInputChange}
+                />
+            </div>
+            <div className="create-input-field-container">
+                <div className="create-input-field-title">Current Technologies in use</div>
+                <InputField name="technology" className="create-team-field" autoFocus={true} value={technology ? technology : ""}
+                    placeholder="Select or add your own option" onChange={(e) => setTechnology(e.target.value)} onKeyUp={handleKeyUp}
+                />
+            </div>
+            {project.technologies && 
+                <div className="technologies-container">
+                    {project.technologies.map((item, index) => (
+                        <div key={index} className="technology">
+                            <div className="technology-icon-wrapper">{item}<span className="technology-remove" onClick={() => removeElement(index)}><FaXmark /></span></div>
+                        </div>
+                    ))}
                 </div>
-                <div className="create-input-field-container">
-                    <div className="create-input-field-title">Project Description</div>
-                    <InputField name="description" className="create-team-field" autoFocus={true} value={project.description ? project.description : ""}
-                        onChange={handleInputChange}
-                    />
-                </div>
-                <div className="create-input-field-container">
-                    <div className="create-input-field-title">Current Technologies in use</div>
-                    <InputField name="technology" className="create-team-field" autoFocus={true} value={technology ? technology : ""}
-                        placeholder="Select or add your own option" onChange={(e) => setTechnology(e.target.value)} onKeyUp={handleKeyUp}
-                    />
-                </div>
-                {project.technologies && 
-                    <div className="technologies-container">
-                        {project.technologies.map((item, index) => (
-                            <div key={index} className="technology">
-                                <div className="technology-icon-wrapper">{item}<span className="technology-remove" onClick={() => removeElement(index)}><FaXmark /></span></div>
-                            </div>
-                        ))}
-                    </div>
-                }
-                <div className="create-input-field-container">
-                    <div className="create-input-field-title">Time Frame</div>
-                    <InputField name="timeframe" className="create-team-field" autoFocus={true} value={project.timeframe ? project.timeframe : ""}
-                        placeholder="Select or add your own option" onChange={handleInputChange}
-                    />
-                </div>
+            }
+            <div className="create-input-field-container">
+                <div className="create-input-field-title">Time Frame</div>
+                <InputField name="timeframe" className="create-team-field" autoFocus={true} value={project.timeframe ? project.timeframe : ""}
+                    placeholder="Select or add your own option" onChange={handleInputChange}
+                />
             </div>
         </>
     )
