@@ -62,7 +62,7 @@ export default function LoginPage() {
                     <div className="input-field-container">
                         <div className="input-field-title">Email Address</div>
                         <InputField name="email" className="signup-input-field" value={account.email ? account.email: ""} 
-                            onChange={handleInputChange}
+                            type="email" onChange={handleInputChange}
                         />
                         {showError.email && <div className="input-error">Email address is required</div>}
                     </div>
@@ -74,7 +74,13 @@ export default function LoginPage() {
                         {showError.password && <div className="input-error-login">Password must be at least 8 characters</div>}
                         <div className="input-field-bottom"><Link to="/forgot-password" className="forgot-pass">Forgot password?</Link></div>
                     </div>
-                    <Button onClick={handleClickSubmitLogin} type={"button"} className={"signup-button-next"} children={"Login"}/>
+                    <Button type={"button"} className={"signup-button-next"} children={"Login"}
+                        onClick={() => (account.email && account.password) ? handleClickSubmitLogin : setModalContent({
+                            title: "Error",
+                            children: "Please fill in all the fields before submitting.",
+                            showModal: true
+                        })} 
+                    />
                     <div className="signup-bottom-redirect">
                         <div>Don't have an account?</div>
                         <Link to="/sign-up" className="signup-bottom-link">Sign up</Link>

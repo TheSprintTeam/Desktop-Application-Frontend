@@ -114,11 +114,11 @@ export default function SignupPage() {
                 <div className="input-field-container">
                     <div className="input-field-title">Email Address</div>
                     <InputField name="email" className="signup-input-field" autoFocus={true} value={account.email ? account.email : ""}
-                        onChange={handleInputChange}
+                        type="email" onChange={handleInputChange}
                     />
                     {showError.email && <div className="input-error">Email address is required</div>}
                 </div>
-                <Button onClick={e => setScreen(screen + 1)} type={"button"} className={"signup-button-next"} children={"Continue"}/>
+                <Button onClick={() => account.email ? setScreen(screen + 1) : undefined} type={"button"} className={"signup-button-next"} children={"Continue"}/>
                 <div className="signup-bottom">
                     <div>Already have an account?</div>
                     <div><Link to="/login" className="login-click">Login</Link></div>
@@ -153,7 +153,13 @@ export default function SignupPage() {
                     />
                     {showError.password && <div className="input-error">Password must be at least 8 characters</div>}
                 </div>
-                <Button onClick={handleClickSubmit} type={"submit"} className={"signup-button-next"} children={"Create Account"}/>
+                <Button type="submit" className="signup-button-next" children={"Create Account"}
+                    onClick={() => (account.firstname && account.lastname && account.password) ? handleClickSubmit : setModalContent({
+                        title: "Error",
+                        children: "Please fill in all the fields before submitting.",
+                        showModal: true
+                    })} 
+                />
             </div>
         );
     } else if (screen === 3) {
@@ -167,7 +173,13 @@ export default function SignupPage() {
                     <div className="input-field-title">Enter your one time passcode</div>
                     <InputField className="signup-input-field" value={OTPCode ? OTPCode : ""} onChange={e => setOTPCode(e.target.value)}/>
                 </div>
-                <Button onClick={handleClickVerify} type={"button"} className={"signup-button-next"} children={"Verify"}/>
+                <Button type={"button"} className={"signup-button-next"} children={"Verify"}
+                    onClick={() => OTPCode ? handleClickVerify : setModalContent({
+                        title: "Error",
+                        children: "Please fill in all the fields before submitting.",
+                        showModal: true
+                    })} 
+                />
             </div>
         );
     }
