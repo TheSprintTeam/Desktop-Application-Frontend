@@ -2,11 +2,16 @@ import { useState } from "react";
 import { FaPen, FaAngleUp, FaAngleDown } from "react-icons/fa6"
 import "../assets/css/Accordion.css"
 
-export default function Accordion({ title, children }) {
+export default function Accordion({ title, children, onChangeScreen }) {
     const [open, setOpen] = useState(false);
 
     const handleEditClick = (e) => {
         e.stopPropagation();
+        if (title === "Project Info") {
+            onChangeScreen(1);
+        } else if (title === "Invitations") {
+            onChangeScreen(2);
+        }
     }
     
     return (
