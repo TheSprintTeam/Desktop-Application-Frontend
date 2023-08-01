@@ -1,10 +1,10 @@
 import Accordion from "./Accordion"
 
-export default function ReviewCreateTeam({ project , invites }) {
+export default function ReviewCreateTeam({ project , invites, onChangeScreen }) {
     
     return (
         <>
-            <Accordion title="Project Info" children={
+            <Accordion title="Project Info" onChangeScreen={onChangeScreen} children={
                 <>
                     <div className="accordion-key-value-container">
                         <div className="accordion-key">Name</div>
@@ -16,7 +16,13 @@ export default function ReviewCreateTeam({ project , invites }) {
                     </div>
                     <div className="accordion-key-value-container">
                         <div className="accordion-key">Technologies</div>
-                        <div className="accordion-value">{project.technologies.map((tech, index) => (<span key={index}>{tech}, </span>))}</div>
+                        <div className="accordion-value">{project.technologies.map((tech, index) => {
+                            if (project.technologies.length - 1 === index) {
+                                return (<span key={index}>{tech}</span>)
+                            } else {
+                                return (<span key={index}>{tech}, </span>)
+                            }
+                            })}</div>
                     </div>
                     <div className="accordion-key-value-container">
                         <div className="accordion-key">Time Frame</div>
@@ -24,26 +30,26 @@ export default function ReviewCreateTeam({ project , invites }) {
                     </div>
                 </>
             }/>
-            {<Accordion title="Invitations" children={
-                invites.users.map((user, index) =>
-                <>
-                <div className="invite">
-                <div className="accordion-key-value-container">
-                        <div className="accordion-key">Name</div>
-                        <div className="accordion-value">{user.name}</div>
-                    </div>
-                    <div className="accordion-key-value-container">
-                        <div className="accordion-key">User Role</div>
-                        <div className="accordion-value">{user.userRole}</div>
-                    </div>
-                    <div className="accordion-key-value-container">
-                        <div className="accordion-key">Email</div>
-                        <div className="accordion-value">{project.timeframe}</div>
-                    </div>
+            <Accordion title="Invitations" onChangeScreen={onChangeScreen} children={
+                <div className="accordion-invite-container">
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                        </tr>
+                        {invites.users.map((user, index) => {
+                            return (
+                                <tr key={index}>
+                                    <td>{user.name}</td>
+                                    <td>{user.email}</td>
+                                    <td>{user.userRole}</td>
+                                </tr>
+                            )
+                        })}
+                    </table>
                 </div>
-                </>)
-                
-            }/>}
+            }/>
         </>
     )
 }

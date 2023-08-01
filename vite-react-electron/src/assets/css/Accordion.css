@@ -37,6 +37,10 @@
     font-weight: bold;
 }
 
+.accordion-edit-icon:hover {
+    color: var(--light-purple);
+}
+
 .accordion-pen {
     padding-right: 6px;
     display: flex;
@@ -69,7 +73,22 @@
     max-height: fit-content;
     transition: all 0.5s cubic-bezier(0, 1, 0, 1);
 }
-.invite{
-    border: 2px;
-    
+
+.accordion-invite-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    border-bottom: 1px solid var(--silver)
+}
+
+td {
+    text-align: center;
 }
