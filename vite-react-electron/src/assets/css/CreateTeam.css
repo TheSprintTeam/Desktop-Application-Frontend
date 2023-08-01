@@ -10,6 +10,7 @@
 .create-team-footer {
     display: flex;
     justify-content: space-between;
+    padding-bottom: 40px;
 }
 
 .external-div-create-left, .external-div-create-right {
@@ -25,4 +26,8 @@
 
 .external-div-create-right>span {
     padding-left: 6px;
+}
+
+.create-team-inner {
+    height: 580px;
 }

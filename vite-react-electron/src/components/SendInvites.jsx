@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import '../assets/css/inviteForm.css';
 
 
-export const SendInvites = ({onFormChange}) =>{  
+export const SendInvites = ({ onInvitesChange }) =>{  
   const [formData, setFormData] = useState({
     users: [
       { name: '', userRole: '', email: '' },
@@ -18,8 +18,8 @@ export const SendInvites = ({onFormChange}) =>{
     });
   };
 
-  if (onFormChange) {
-    onFormChange(formData);
+  if (onInvitesChange) {
+    onInvitesChange(formData);
   }
 
   const handleAddUser = () => {

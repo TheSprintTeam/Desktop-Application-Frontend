@@ -1,0 +1,81 @@
+.add-user-container {
+    padding-bottom: 16px;
+}
+
+.invite-user-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-another-member, .edit-member {
+    display: flex;
+    align-items: center;
+    line-height: 16px;
+}
+
+.add-another-member {
+    color: rgb(18, 175, 223);
+}
+
+.edit-member {
+    justify-content: space-between;
+    padding-bottom: 24px;
+    border-bottom: 4px solid #edf2f7;
+}
+
+.member-icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 16px;
+    cursor: pointer;
+}
+
+.member-icon-container.delete {
+    color: lightcoral;
+}
+
+.member-icon-container.save {
+    color: rgb(116, 185, 12);
+}
+
+.add-another-member-icon {
+    padding-right: 8px;
+}
+
+.input-error-invite {
+    color: lightcoral;
+    margin-top: -24px;
+    margin-bottom: 16px;
+}
+
+.invited-users-container {
+    padding-bottom: 40px;
+}
+
+.user-container {
+    padding: 24px 0px;
+    border-bottom: 4px solid #edf2f7;
+}
+
+.profile-icon-wrapper {
+    display: flex;
+    line-height: 36px;
+}
+
+.profile-icon {
+    padding-right: 8px;
+    color: var(--silver);
+    font-size: 36px;
+}
+.user-details-invite {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.change-details {
+    margin-left: 46px;
+    margin-top: 4px;
+    color: rgb(18, 175, 223);
+    cursor: pointer;
+}

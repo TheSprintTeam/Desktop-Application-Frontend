@@ -1,16 +1,10 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { createUser, verifyUser } from "../api/auth";
 import CreateTeam from "../components/CreateTeam";
-import Button from "../components/Button";
-import PopupModal from "../components/PopupModal";
-import { InputField, InputFieldPassword } from "../components/InputFields";
-import { isEmpty } from "../utils/helpers";
-import "../assets/css/SignupPage.css";
 import {SendInvites} from "../components/SendInvites"
-import { FaArrowLeft } from "react-icons/fa6"
 import ProjectInfo from "../components/ProjectInfo";
 import ReviewCreateTeam from "../components/ReviewCreateTeam";
+import LeftNavbar from "../components/LeftNavbar";
+import InviteUsers from "../components/InviteUsers";
 
 export default function CreateTeamPage() {
     const projectInfo = {
@@ -19,43 +13,17 @@ export default function CreateTeamPage() {
         "technologies": [],
         "timeframe": "",
     }
-    const [invites, setFormDataInParent] = useState({
-      users: [
-        { name: '', userRole: '', email: '' },
-      ],
-    });
+    const invitesInfo = {
+        users: []
+    }
 
-    const onFormChange = (formData) => {
-    // Update the parent component's state whenever there are changes in the child component
-       setFormDataInParent(formData);
-    };
-
-    const [screen, setScreen] = useState(1);
-    //const [showError, setShowError] = useState({ ...accountInfo});
-    const [modalContent, setModalContent] = useState({
-        "title": "",
-        "children": "",
-        "showModal": false,
-    });
     const [project, setProject] = useState(projectInfo);
+    const [invites, setInvites] = useState(invitesInfo);
+    const [screen, setScreen] = useState(1);
 
     const handleChangeScreen = (newScreen) => {
         setScreen(newScreen);
     }
-
-    function handleInputChange(e) {
-        const { name, value } = e.target;
-        setAccount((prevInputs) => ({ ...prevInputs, [name]: value}))
-        
-        // set error if input is not filled
-        setShowError((prevErrors) => ({ ...prevErrors, [name]: isEmpty(value)}))
-    }
-
-    async function handleClickSubmit() {
-
-    }
-
-    console.log(modalContent.showModal);
 
     let titleContent
     let itemContent
@@ -63,17 +31,18 @@ export default function CreateTeamPage() {
         titleContent = "Project Info"
         itemContent = (<ProjectInfo project={project} onProjectChange={setProject}/>);
     } else if (screen === 2) {
-      titleContent = "Send Invititations to Team"
-      itemContent = (<SendInvites onFormChange = {onFormChange}/>);
-    }else if (screen === 3) {
+      titleContent = "Invitations"
+      //itemContent = (<SendInvites invites={invites} onInvitesChange={onFormChange}/>);
+      itemContent = (<InviteUsers invites={invites} onInvitesChange={setInvites}/>);
+    } else if (screen === 3) {
         titleContent = "Review"
-        itemContent = (<ReviewCreateTeam project={project} invites = {invites}/>);
+        itemContent = (<ReviewCreateTeam project={project} invites = {invites} onChangeScreen={handleChangeScreen}/>);
     } 
     return (
         <>
-            <CreateTeam title={titleContent} children={itemContent} screen={screen} onChangeScreen={handleChangeScreen}/>
-            <PopupModal title={modalContent.title} open={modalContent.showModal} children={modalContent.children}
-                onClose={() => setModalContent({title: "", children: "", showModal: false})} 
+            <LeftNavbar screen={screen} onChangeScreen={handleChangeScreen}/>
+            <CreateTeam title={titleContent} children={itemContent} screen={screen} onChangeScreen={handleChangeScreen}
+                project={project} invites={invites}
             />
         </>
     );
