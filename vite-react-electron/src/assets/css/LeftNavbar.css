@@ -1,11 +1,13 @@
 .left-nav {
     width: 35rem;
-    height: 100vh;
-    position: fixed;
+    height: 800px;
+    position: absolute;
     background-color: #fff;
+    padding-top: 25px;
+    margin: 0px;
 }
 
-.left-nav ul::after {
+.left-nav .left-nav-vertical::after {
     content: "";
     position: absolute;
     width: 2px;
@@ -14,7 +16,19 @@
     top: 0;
     background: var(--light-purple);
     z-index: 1;
-    margin-top: 31px;
+    margin-top: 56px;
+}
+
+.left-nav .left-nav-right-vertical::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 600px;
+    left: 450px;
+    top: 0;
+    background: var(--silver);
+    z-index: 1;
+    margin-top: 56px;
 }
 
 .left-nav-vertical {
@@ -43,6 +57,10 @@
     text-decoration: none;
     transition: 0.3ms;
     cursor: pointer;
+}
+
+.left-nav-link:hover {
+    color: var(--light-purple);
 }
 
 .left-nav-link:before {

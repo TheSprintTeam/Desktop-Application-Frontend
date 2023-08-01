@@ -8,7 +8,6 @@ import SignupPage from './pages/signupPage.jsx';
 import LoginPage from './pages/LoginPage';
 import ForgotPasswordPage from './pages/ForgotPasswordPage.jsx';
 import JoinTeamPage from './pages/JoinTeamPage';
-import LeftNavbar from './components/LeftNavbar.jsx';
 import CreateTeamPage from './pages/CreateTeamPage.jsx';
 
 function NavbarWrapper() {
@@ -18,15 +17,6 @@ function NavbarWrapper() {
       <Outlet />
     </div>
   );
-}
-
-function LeftNavbarWrapper() {
-  return(
-    <div>
-      <LeftNavbar />
-      <Outlet />
-    </div>
-  )
 }
 
 const router = createBrowserRouter([
@@ -57,13 +47,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/create-team",
-        element: <LeftNavbarWrapper />,
-        children: [
-          {
-            path: "/create-team",
-            element: <CreateTeamPage />,
-          }
-        ]
+        element: <CreateTeamPage />,
       }
     ],
   },
