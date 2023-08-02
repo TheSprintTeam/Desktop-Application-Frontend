@@ -20,10 +20,13 @@ export async function createUser(email, password, firstName, lastName) {
 // POST Request for logging in
 export async function loginUser(email, password) {
     return await resolve(axios.post(base_url+"/users/login", {
-        email: email,
+        username: email,
         password: password
     }, {
-        withCredentials: true
+        withCredentials: true,
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+        }
     })
     .then(res => res.data));
 }
