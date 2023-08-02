@@ -8,7 +8,7 @@ export default function InviteUsers({ invites, onInvitesChange }) {
 
   const userInfo = {
     name: "",
-    userRole: "",
+    userRole: "Member",
     email: "",
   }
   const [inviteUser, setInviteUser] = useState(userInfo)
@@ -28,7 +28,7 @@ export default function InviteUsers({ invites, onInvitesChange }) {
       }));
       setInviteUser({
         name: "",
-        userRole: "",
+        userRole: "Member",
         email: ""
       })
     }
