@@ -1,14 +1,15 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { loginUser } from "../api/auth";
 import SignupForm from "../components/SignupForm";
 import Button from "../components/Button";
 import PopupModal from "../components/PopupModal";
 import { InputField, InputFieldPassword } from "../components/InputFields";
-import { isEmpty } from "../utils/helpers";
+import { isEmpty, isEmptyObjectField } from "../utils/helpers";
 import "../assets/css/SignupPage.css";
 
 export default function LoginPage() {
+    const navigate = useNavigate();
     const accountInfo = {
         "email": "",
         "password": "",
@@ -22,26 +23,39 @@ export default function LoginPage() {
     });
 
     async function handleClickSubmitLogin() {
-        let response = await loginUser(account.email, account.password);
-
-        // handle the response here
-        // if response is error display pop up saying there was an error creating account:
-        if (response.error) {
-            console.log("error logging in to account!");
+        if (!isEmptyObjectField(account)) {
+            let response = await loginUser(account.email, account.password);
+            console.log(response);
+    
+            // handle the response here
+            // if response is error display pop up saying there was an error creating account:
+            if (response.error) {
+                console.log("error logging in to account!");
+                setModalContent({
+                    title: "Error",
+                    children: "There was an error logging in to your account, please try again. Error: " + response.error,
+                    showModal: true
+                });
+            } else {
+                // display that the user successfully created a team
+                console.log("success logging in!");
+                setModalContent({
+                    title: "Success",
+                    children: "You have successfully logged in to your account! Redirecting you back to the home page in 3 seconds.",
+                    showModal: true
+                });
+                setTimeout(() => {
+                    navigate("/");
+                    window.location.reload();
+                }, 3000);
+                // redirect to home page
+            }
+        } else {
             setModalContent({
                 title: "Error",
-                children: "There was an error logging in to your account, please try again. Error: " + response.error,
+                children: "Please fill in all the fields.",
                 showModal: true
             });
-        } else {
-            // display that the user successfully created a team
-            console.log("success logging in!");
-            setModalContent({
-                title: "Success",
-                children: "You have successfully logged in to your account! Redirecting you back to the home page in 3 seconds.",
-                showModal: true
-            });
-            // redirect to home page
         }
     }
 
@@ -75,11 +89,7 @@ export default function LoginPage() {
                         <div className="input-field-bottom"><Link to="/forgot-password" className="forgot-pass">Forgot password?</Link></div>
                     </div>
                     <Button type={"button"} className={"signup-button-next"} children={"Login"}
-                        onClick={() => (account.email && account.password) ? handleClickSubmitLogin : setModalContent({
-                            title: "Error",
-                            children: "Please fill in all the fields before submitting.",
-                            showModal: true
-                        })} 
+                        onClick={handleClickSubmitLogin} 
                     />
                     <div className="signup-bottom-redirect">
                         <div>Don't have an account?</div>
