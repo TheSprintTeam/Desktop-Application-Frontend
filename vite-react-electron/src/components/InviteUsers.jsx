@@ -1,9 +1,8 @@
 import { useState, useCallback } from 'react';
 import { InputField } from './InputFields';
-import { isEmptyObjectField, validateEmail } from '../utils/helpers';
+import { isEmptyObjectField, validateEmail, roles} from '../utils/helpers';
 import { FaCircleUser, FaPlus, FaRegCircleXmark, FaRegCircleCheck } from 'react-icons/fa6';
 import "../assets/css/InviteUsers.css";
-
 
 export default function InviteUsers({ invites, onInvitesChange }) {
 
@@ -12,9 +11,9 @@ export default function InviteUsers({ invites, onInvitesChange }) {
     userRole: "",
     email: "",
   }
-  const roles = ["role1", "role2", "role3"]
   const [inviteUser, setInviteUser] = useState(userInfo)
   const [editIndex, setEditIndex] = useState(-1)
+  console.log(roles);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -69,8 +68,8 @@ export default function InviteUsers({ invites, onInvitesChange }) {
                         <div className="input-field-title-invite">Role</div>
                         <select name="userRole" className="select-field-invite" value={invites.users[index].userRole ? invites.users[index].userRole : ""} 
                           onChange={(e) => handleEditInputChange(e, index)}>
-                          {roles.map((role, index) => {
-                            return <option key={index}>{role}</option>
+                          {roles.map((role) => {
+                            return <option key={role.id}>{role.role}</option>
                           })}
                         </select>
                     </div>
@@ -116,8 +115,8 @@ export default function InviteUsers({ invites, onInvitesChange }) {
             <div className="input-field-container-invite select">
                 <div className="input-field-title-invite">Role</div>
                 <select name="userRole" className="select-field-invite" value={inviteUser.userRole ? inviteUser.userRole : ""} onChange={handleInputChange}>
-                  {roles.map((role, index) => {
-                    return <option key={index}>{role}</option>
+                  {roles.map((role) => {
+                    return <option key={role.id}>{role.role}</option>
                   })}
                 </select>
             </div>

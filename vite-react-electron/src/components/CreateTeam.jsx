@@ -1,17 +1,29 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "./Button";
 import PopupModal from "./PopupModal";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 import { isEmptyObjectField } from "../utils/helpers";
+import { createTeam, inviteUserToTeam } from "../api/team";
 import "../assets/css/CreateTeam.css";
-import {createTeam, inviteUserToTeam} from "..api/team.jsx"
+
 export default function CreateTeam({ title, children, screen, onChangeScreen, project, invites }) {
-    
+    const navigate = useNavigate();
+
     const [modalContent, setModalContent] = useState({
         "title": "",
         "children": "",
         "showModal": false,
     });
+
+    const rolesMapping = {
+        "Member": "649e1e3e45463b7a2cd13e0c",
+        "Co-Lead": "649e1e7e45463b7a2cd13e0d",
+    }
+
+    const mapRoleToId = (role) => {
+        return rolesMapping[role];
+    }
 
     const handleNextClick = () => {
         if (screen === 1 && isEmptyObjectField(project)) {
@@ -31,15 +43,31 @@ export default function CreateTeam({ title, children, screen, onChangeScreen, pr
 
     const handleSubmitClick = async () => {
         // handles submitting to backend
-        const formData = {
-            "technologies" : project.technologies,
-            "description" : project.description
-        };
-
-        let team_id = await createTeam(project.name, formData );
-        invites.forEach((user) => {
-            inviteUserToTeam(team_id, user.email, user.userRole)
+        let response = await createTeam( project.name, project.description, project.technologies );
+        let team_id;
+        if (response.error) {
+            console.log("error creating team");
+            setModalContent({
+                title: "Error",
+                children: "Unable to create team. Error: " + response.error,
+                showModal: true
+            });
+        } else {
+            console.log("success creating team");
+            team_id = response.data.team.id;
+        }
+        invites.users.forEach((user) => {
+            inviteUserToTeam(team_id, user.email, mapRoleToId(user.userRole))
         });
+        setModalContent({
+            title: "Success",
+            children: "You successfully created your team. Redirecting to the dashboard in 3 seconds...",
+            showModal: true
+        });
+        setTimeout(() => {
+            navigate("/");
+            window.location.reload();
+        }, 3000);
     }
     
     return (
