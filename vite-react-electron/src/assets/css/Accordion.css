@@ -83,12 +83,23 @@
 
 table {
     width: 100%;
+    table-layout: fixed;
 }
 
-th {
-    border-bottom: 1px solid var(--silver)
+th, td {
+    border-bottom: 1px solid var(--silver);
+    text-align: left;
+    
 }
 
-td {
-    text-align: center;
+/* Accordion for Teams */
+.accordion-teams {
+    padding-bottom: 16px;
+    width: 100%;
+}
+
+.accordion-container-teams {
+    border-radius: 4px;
+    border: 1px solid var(--silver);
+    width: 1000px;
 }
