@@ -9,7 +9,8 @@ import LoginPage from './pages/LoginPage';
 import ForgotPasswordPage from './pages/ForgotPasswordPage.jsx';
 import JoinTeamPage from './pages/JoinTeamPage';
 import CreateTeamPage from './pages/CreateTeamPage.jsx';
-
+import InstallPage from './pages/InstallPage.jsx'
+import ViewTeams from './pages/ViewTeamsPage.jsx';
 function NavbarWrapper() {
   return (
     <div>
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
     element: <NavbarWrapper />,
     errorElement: <ErrorPage />,
     children: [
+      
       {
         path: "/",
         element: <DashboardPage />,
@@ -48,7 +50,16 @@ const router = createBrowserRouter([
       {
         path: "/create-team",
         element: <CreateTeamPage />,
+      },
+      {
+        path: "/install/:team_id",
+        element:<InstallPage />
+      },
+      {
+        path: "/sendInvite/:team_id",
+        element: <ViewTeams/>
       }
+      
     ],
   },
 ]);

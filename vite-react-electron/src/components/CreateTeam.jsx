@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState , useNavigate} from "react";
 import Button from "./Button";
 import PopupModal from "./PopupModal";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 import { isEmptyObjectField } from "../utils/helpers";
 import "../assets/css/CreateTeam.css";
-import {createTeam, inviteUserToTeam} from "..api/team.jsx"
+import {createTeam, inviteUserToTeam} from "../api/team.jsx"
 export default function CreateTeam({ title, children, screen, onChangeScreen, project, invites }) {
     
     const [modalContent, setModalContent] = useState({
@@ -40,6 +40,9 @@ export default function CreateTeam({ title, children, screen, onChangeScreen, pr
         invites.forEach((user) => {
             inviteUserToTeam(team_id, user.email, user.userRole)
         });
+
+        useNavigate('/clickInstall')
+
     }
     
     return (
