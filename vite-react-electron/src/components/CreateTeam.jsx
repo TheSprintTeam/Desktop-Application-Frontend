@@ -3,8 +3,9 @@ import { useNavigate } from "react-router-dom";
 import Button from "./Button";
 import PopupModal from "./PopupModal";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
-import { isEmptyObjectField } from "../utils/helpers";
+import { isEmptyObjectField, mapRoleToId } from "../utils/helpers";
 import { createTeam, inviteUserToTeam } from "../api/team";
+
 import "../assets/css/CreateTeam.css";
 
 export default function CreateTeam({ title, children, screen, onChangeScreen, project, invites }) {
@@ -15,15 +16,6 @@ export default function CreateTeam({ title, children, screen, onChangeScreen, pr
         "children": "",
         "showModal": false,
     });
-
-    const rolesMapping = {
-        "Member": "649e1e3e45463b7a2cd13e0c",
-        "Co-Lead": "649e1e7e45463b7a2cd13e0d",
-    }
-
-    const mapRoleToId = (role) => {
-        return rolesMapping[role];
-    }
 
     const handleNextClick = () => {
         if (screen === 1 && isEmptyObjectField(project)) {
@@ -65,7 +57,7 @@ export default function CreateTeam({ title, children, screen, onChangeScreen, pr
             showModal: true
         });
         setTimeout(() => {
-            navigate("/");
+            navigate("/clickInstall");
             window.location.reload();
         }, 3000);
     }
