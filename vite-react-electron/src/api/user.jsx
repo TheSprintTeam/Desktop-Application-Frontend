@@ -9,9 +9,16 @@ export async function getUser() {
     .then(res => res.data));
 }
 
+export async function getUserFromId(userId) {
+    return await resolve(axios.get(base_url+"/users/"+userId, {
+        withCredentials: true,
+    })
+    .then(res => res.data));
+}
+
 // GET Request for getting all of a user's teams
 export async function getUserTeams() {
-    return await resolve(axios.get(base_url+"/users/me/teams", {
+    return await resolve(axios.get(base_url+"/users/teams", {
         withCredentials: true,
     })
     .then(res => res.data));

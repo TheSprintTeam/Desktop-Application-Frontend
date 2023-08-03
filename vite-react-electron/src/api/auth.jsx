@@ -62,5 +62,8 @@ export async function changeUserPassword(oldPassword, newPassword) {
 
 // DELETE Request for deleting a user's account
 export async function deleteUser() {
-    return await resolve(axios.delete(base_url+"/users/delete_user").then(res => res.data));
+    return await resolve(axios.delete(base_url+"/users/delete_user", {
+        withCredentials: true,
+    })
+    .then(res => res.data));
 }

@@ -51,10 +51,8 @@ export async function inviteUserToTeam(team_id, email, role_id) {
 }
 
 // PUT Request for joining a team
-export async function joinTeam(team_id, otp_code) {
-    return await resolve(axios.put(base_url+"/teams/join", {
-        otp_code: otp_code
-    }, {
+export async function joinTeam(otp_code) {
+    return await resolve(axios.put(base_url+"/teams/join", null, {
         withCredentials: true,
         params: {
             otp_code: otp_code
@@ -65,14 +63,26 @@ export async function joinTeam(team_id, otp_code) {
 
 // GET Request for getting a team's prompt
 export async function getTeamPrompt(team_id) {
-    return await resolve(axios.get(base_url+"/teams/ml/"+{team_id}+"/prompt")
+    return await resolve(axios.get(base_url+"/teams/ml/"+team_id+"/prompt", {
+        withCredentials: true,
+    })
     .then(res => res.data));
 }
 
 // POST Request for storing a team's prompt
 export async function storeTeamPrompt(team_id, prompt) {
-    return await resolve(axios.post(base_url+"/teams/ml/"+{team_id}+"/prompt", {
+    return await resolve(axios.post(base_url+"/teams/ml/"+team_id+"/prompt", {
         prompt: prompt
+    }, {
+        withCredentials: true,
+    })
+    .then(res => res.data));
+}
+
+// POST Request for installing a team's technology
+export async function installOnTeam(team_id) {
+    return await resolve(axios.post(base_url+"/teams/teamInstall/"+team_id, null, {
+        withCredentials: true,
     })
     .then(res => res.data));
 }
