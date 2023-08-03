@@ -1,0 +1,26 @@
+.teams-dashboard {
+    background-color: #fff;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 120px;
+}
+
+.teams-dashboard-title {
+    font-size: 48px;
+    font-weight: bold;
+    margin: 0px;
+    height: 62px;
+    padding-bottom: 24px;
+}
+
+.teams-dashboard-inner {
+    padding-bottom: 120px;
+}
+
+.top-container-desc {
+    font-size: 16px;
+    padding-bottom: 16px;
+}
