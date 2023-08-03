@@ -43,7 +43,7 @@ export default function Navbar({ userLoggedIn }) {
             <nav className="top-nav">
                 <ul className="navbar-left">
                     <li><NavLink to={"/"} className="sprint-icon">&lt;&#47;&gt;</NavLink></li>
-                    <li><NavLink to={"tbd"}>Link 2</NavLink></li>
+                    <li><NavLink to={"/view-teams"}>Teams</NavLink></li>
                     <li><NavLink to={"tbd"}>Link 3</NavLink></li>
                 </ul>
                 <div className="navbar-right">
