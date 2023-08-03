@@ -182,3 +182,29 @@ button:disabled:hover {
 .create-button-backnext:focus {
     outline: none;
 }
+
+/* Styling for Button Invite */ 
+.button-invite {
+    max-width: fit-content;
+    background-color: var(--light-purple);
+    border: 1px solid var(--gray-opa2);
+    font-weight: bold;
+    height: 36px;
+    outline: none;
+    box-shadow: 0 3px 15px -2px;
+    color: #fff;
+    transition: 0.3s;
+    margin: 0px;
+    line-height: 8px;
+}
+
+.button-invite:hover {
+    background-color: var(--light-purple-opa8);
+    border: 1px solid var(--gray-opa2);
+    outline: none;
+    color: #fff;
+}
+
+.button-invite:focus {
+    outline: none;
+}
