@@ -10,6 +10,9 @@ import LoginPage from './pages/LoginPage';
 import ForgotPasswordPage from './pages/ForgotPasswordPage.jsx';
 import JoinTeamPage from './pages/JoinTeamPage';
 import CreateTeamPage from './pages/CreateTeamPage.jsx';
+import InstallPage from './pages/InstallPage.jsx';
+import SendInvitePage from './pages/SendInvitePage.jsx';
+import ViewTeamsPage from './pages/ViewTeamsPage.jsx';
 
 function App() {
   const [user, setUser] = useState({
@@ -73,6 +76,18 @@ function App() {
         {
           path: "/create-team",
           element: <CreateTeamPage />,
+        },
+        {
+          path: "/view-teams",
+          element: <ViewTeamsPage userLoggedIn={user}/>,
+        },
+        {
+          path: "/install/:team_id",
+          element:<InstallPage />
+        },
+        {
+          path: "/sendInvite/:team_id",
+          element: <SendInvitePage />
         }
       ],
     },
