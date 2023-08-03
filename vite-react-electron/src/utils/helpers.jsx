@@ -1,3 +1,5 @@
+import { getUserFromId } from "../api/user";
+
 export function isEmpty(str) {
     return (!str || str.length === 0);
 }
@@ -9,7 +11,7 @@ export function isEmptyObjectField(obj) {
         }
     }
     return false;
-}
+};
 
 export const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -33,3 +35,31 @@ export const roles = [
         permissions: "All",
     },
 ];
+
+const rolesMapping = {
+    "Member": "649e1e3e45463b7a2cd13e0c",
+    "Co-Lead": "649e1e7e45463b7a2cd13e0d",
+}
+
+export const mapRoleToId = (role) => {
+    return rolesMapping[role];
+}
+
+const RoleIdsMapping = {
+    "649e1e3e45463b7a2cd13e0c": "Member",
+    "649e1e7e45463b7a2cd13e0d": "Co-Lead",
+}
+
+export const mapRoleIdToName = (id) => {
+    return RoleIdsMapping[id];
+}
+
+export const mapUserIdToObject = async (id) => {
+    let response = await getUserFromId(id);
+    if (response.error) {
+        // console.log("error retrieving user details");
+    } else {
+        // console.log(response.data);
+        return response;
+    }
+}
