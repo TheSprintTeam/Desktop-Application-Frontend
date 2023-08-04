@@ -20,10 +20,10 @@ export default function ProjectInfo({ project, onProjectChange }) {
         }
     }, [technology, project, onProjectChange])
 
-    const removeElement = (index) => {
+    const removeElement = useCallback((index) => {
         const newTechnologies = project.technologies.filter((_, i) => i !== index);
         onProjectChange({ ...project, technologies: newTechnologies});
-    }
+    }, [technology, project, onProjectChange])
 
     console.log(project);
 
