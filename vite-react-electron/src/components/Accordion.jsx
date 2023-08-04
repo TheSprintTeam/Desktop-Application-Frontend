@@ -76,3 +76,27 @@ export function AccordionTeams({ title, children, teamId }) {
         </div>
     );
 }
+
+export function AccordionRecommendation({ title, children }) {
+    const [open, setOpen] = useState(true);
+    
+    return (
+        <div className="accordion recs">
+            <div className="accordion-container recs">
+                <div className="accordion-header-container recs" onClick={() => setOpen(!open)}>
+                    <div className="accordion-left recs">
+                        <div className="accordion-title recs">
+                            {title}
+                        </div>
+                        <div className="accordion-dropdown-icon recs">
+                            {open ? <FaAngleUp /> : <FaAngleDown />}
+                        </div>
+                    </div>
+                </div>
+                <div className={`accordion-inner-container${open ? " show recs" : ""}`}>
+                    {children}
+                </div>
+            </div>
+        </div>
+    );
+}

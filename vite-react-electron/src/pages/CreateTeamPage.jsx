@@ -1,10 +1,10 @@
 import { useState } from "react";
 import CreateTeam from "../components/CreateTeam";
-import {SendInvites} from "../components/SendInvites"
 import ProjectInfo from "../components/ProjectInfo";
 import ReviewCreateTeam from "../components/ReviewCreateTeam";
 import LeftNavbar from "../components/LeftNavbar";
 import InviteUsers from "../components/InviteUsers";
+import Recommendations from "../components/Recommendations";
 
 export default function CreateTeamPage() {
     const projectInfo = {
@@ -16,9 +16,14 @@ export default function CreateTeamPage() {
     const invitesInfo = {
         users: []
     }
+    const recsInfo = {
+        recs: [],
+        acceptedRecs: []
+    }
 
     const [project, setProject] = useState(projectInfo);
     const [invites, setInvites] = useState(invitesInfo);
+    const [recommendations, setRecommendations] = useState(recsInfo);
     const [screen, setScreen] = useState(1);
 
     const handleChangeScreen = (newScreen) => {
@@ -31,10 +36,13 @@ export default function CreateTeamPage() {
         titleContent = "Project Info"
         itemContent = (<ProjectInfo project={project} onProjectChange={setProject}/>);
     } else if (screen === 2) {
+        titleContent = "Recommendations"
+        itemContent = (<Recommendations project={project} onProjectChange={setProject} recommendations={recommendations} onRecommendationsChange={setRecommendations} />);
+    } else if (screen === 3) {
       titleContent = "Invitations"
       //itemContent = (<SendInvites invites={invites} onInvitesChange={onFormChange}/>);
       itemContent = (<InviteUsers invites={invites} onInvitesChange={setInvites}/>);
-    } else if (screen === 3) {
+    } else if (screen === 4) {
         titleContent = "Review"
         itemContent = (<ReviewCreateTeam project={project} invites = {invites} onChangeScreen={handleChangeScreen}/>);
     } 
