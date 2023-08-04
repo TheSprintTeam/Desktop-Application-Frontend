@@ -32,7 +32,7 @@ export default function ReviewCreateTeam({ project , invites, onChangeScreen }) 
             }/>
             <Accordion title="Invitations" onChangeScreen={onChangeScreen} children={
                 <div className="accordion-invite-container">
-                    <table>
+                    <table className="invitations-table">
                         <tr>
                             <th>Name</th>
                             <th>Email</th>
