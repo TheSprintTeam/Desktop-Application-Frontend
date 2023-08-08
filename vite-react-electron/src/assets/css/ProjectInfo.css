@@ -8,13 +8,22 @@
     font-size: 16px;
 }
 
+.create-input-field-container.active {
+    padding-bottom: 8px;
+}
+
+.technologies-container {
+    display: flex;
+    width: 800px;
+    flex-flow: row wrap;
+}
+
 .technology {
     background-color: var(--light-gray);
     width: max-content;
     padding: 6px;
     border-radius: 4px;
-    margin-top: -16px;
-    margin-bottom: 16px;
+    margin: 0px 8px 16px 0px;
 }
 
 .technology-icon-wrapper {
@@ -30,4 +39,17 @@
 
 .technology-remove {
     cursor: pointer;
+}
+
+.project-info-textarea {
+    margin-bottom: 16px;
+    height: 48px;
+    border: 1px solid var(--gray-opa2);
+    outline: 1px var(--gray-opa2);
+    font-size: 16px;
+    border-radius: 4px;
+    width: 520px;
+    height: 100px;
+    padding: 8px;
+    margin: 0px;
 }

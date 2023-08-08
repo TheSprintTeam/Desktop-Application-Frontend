@@ -37,11 +37,11 @@ export default function ProjectInfo({ project, onProjectChange }) {
             </div>
             <div className="create-input-field-container">
                 <div className="create-input-field-title">Project Description</div>
-                <InputField name="description" className="create-team-field" autoFocus={true} value={project.description ? project.description : ""}
-                    onChange={handleInputChange}
+                <textarea name="description" className="project-info-textarea" autoFocus={true} value={project.description ? project.description : ""}
+                    placeholder="Here, describe the project you want to work on and include as much detail as possible." onChange={handleInputChange}
                 />
             </div>
-            <div className="create-input-field-container">
+            <div className={`create-input-field-container ${(project.technologies.length > 0) ? "active" : ""}`}>
                 <div className="create-input-field-title">Current Technologies in use</div>
                 <InputField name="technology" className="create-team-field" autoFocus={true} value={technology ? technology : ""}
                     placeholder="Select or add your own option" onChange={(e) => setTechnology(e.target.value)} onKeyUp={handleKeyUp}
