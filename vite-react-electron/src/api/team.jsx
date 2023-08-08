@@ -1,5 +1,5 @@
 import axios from "axios";
-import {base_url, resolve} from "../utils/apiUtils";
+import {base_url, rec_eng_url, resolve} from "../utils/apiUtils";
 
 // POST Request for creating a team
 export async function createTeam(teamName, description, technologies) {
@@ -83,6 +83,14 @@ export async function storeTeamPrompt(team_id, prompt) {
 export async function installOnTeam(team_id) {
     return await resolve(axios.post(base_url+"/teams/teamInstall/"+team_id, null, {
         withCredentials: true,
+    })
+    .then(res => res.data));
+}
+
+// POST Request for rec eng --> returns an array of technologies
+export async function recEngTeam(description) {
+    return await resolve(axios.post(rec_eng_url+"/predict", {
+        description: description,
     })
     .then(res => res.data));
 }
