@@ -36,13 +36,16 @@ export default function CreateTeamPage() {
         titleContent = "Project Info"
         itemContent = (<ProjectInfo project={project} onProjectChange={setProject}/>);
     } else if (screen === 2) {
+        titleContent = "Search Engine"
+        itemContent = (<div>testing</div>);
+    } else if (screen === 3) {
         titleContent = "Recommendations"
         itemContent = (<Recommendations project={project} onProjectChange={setProject} recommendations={recommendations} onRecommendationsChange={setRecommendations} />);
-    } else if (screen === 3) {
+    } else if (screen === 4) {
       titleContent = "Invitations"
       //itemContent = (<SendInvites invites={invites} onInvitesChange={onFormChange}/>);
       itemContent = (<InviteUsers invites={invites} onInvitesChange={setInvites}/>);
-    } else if (screen === 4) {
+    } else if (screen === 5) {
         titleContent = "Review"
         itemContent = (<ReviewCreateTeam project={project} invites = {invites} onChangeScreen={handleChangeScreen}/>);
     } 

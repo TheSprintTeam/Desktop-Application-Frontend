@@ -71,7 +71,7 @@ export default function CreateTeam({ title, children, screen, onChangeScreen, pr
                     <Button onClick={handleBackClick} type={"button"} className={"create-button-backnext"} disabled={screen === 1} children={
                         <div className="external-div-create-left"><span className="external-icon-create"><FaArrowLeft /></span>Back</div>
                     }/>
-                    { screen === 3 ?
+                    { screen === 5 ?
                     <Button onClick={handleSubmitClick} type={"button"} className={"create-button-backnext"} children={
                         <div className="external-div-create-right">Submit<span className="external-icon-create"><FaArrowRight /></span></div>
                     }/> : 

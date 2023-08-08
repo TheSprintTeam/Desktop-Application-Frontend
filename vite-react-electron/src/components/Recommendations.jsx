@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { FaTrash } from 'react-icons/fa6';
 import { AccordionRecommendation } from "../components/Accordion";
+import { recEngTeam } from '../api/team';
 import "../assets/css/Recommendations.css";
 
 export default function Recommendations({ project, onProjectChange, recommendations, onRecommendationsChange }) {
@@ -15,6 +16,8 @@ export default function Recommendations({ project, onProjectChange, recommendati
 
     useEffect(() => {
         const getRecommendations = async () => {
+            let response = await recEngTeam(project.description);
+            console.log(response);
             onRecommendationsChange((prevRecs) => ({ ...prevRecs, recs: recsConst}));
         }
 
