@@ -10,9 +10,9 @@ export default function LeftNavbar({ screen, onChangeScreen }) {
                     </li>
                     <li className="left-nav-item"><a className={`left-nav-link ${(screen <= 2) ? "two " : "check "}`+`${screen<2 ? "tl " : "ts "}`+`${screen==2 ? "active" : ""}`}
                         onClick={() => onChangeScreen(2)}
-                    >Search Engine</a></li>
+                    >Recommendation</a></li>
                     <li className="left-nav-item"><a className={`left-nav-link ${(screen <= 3) ? "three " : "check "}`+`${screen<3 ? "tl " : "ts "}`+`${screen==3 ? "active" : ""}`}
-                        onClick={() => onChangeScreen(3)}>Recommendation</a>
+                        onClick={() => onChangeScreen(3)}>Search Engine</a>
                     </li>
                     <li className="left-nav-item"><a className={`left-nav-link ${(screen <= 4) ? "four " : "check "}`+`${screen<4 ? "tl " : "ts "}`+`${screen==4 ? "active" : ""}`} 
                         onClick={() => onChangeScreen(4)}>Invitations</a>
