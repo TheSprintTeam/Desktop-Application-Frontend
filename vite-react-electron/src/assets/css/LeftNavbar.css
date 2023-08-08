@@ -96,9 +96,25 @@
 }
 
 .left-nav-link.check:before {
-    background: var(--light-purple);
-    content: "✔";
-    color: #fff;
+    content: "";
+    position: absolute;
+    background: var(--light-purple); 
+    background-image: url('checkmark.svg'); 
+    background-size: 18px 18px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 32px; 
+    height: 32px; 
+    left: 143px;
+    border-radius: 50%;
+    border: 2px solid var(--silver);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff; 
+    transition: background-color 0.5s; 
+
 }
 
 .left-nav-link.ts:before {
