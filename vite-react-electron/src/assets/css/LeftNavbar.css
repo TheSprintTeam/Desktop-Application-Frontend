@@ -7,18 +7,6 @@
     margin: 0px;
 }
 
-.left-nav .left-nav-vertical::after {
-    content: "";
-    position: absolute;
-    width: 2px;
-    height: 338px;
-    left: 160px;
-    top: 0;
-    background: var(--light-purple);
-    z-index: 1;
-    margin-top: 56px;
-}
-
 .left-nav .left-nav-right-vertical::after {
     content: "";
     position: absolute;
@@ -59,16 +47,129 @@
     cursor: pointer;
 }
 
+.left-nav-link.active {
+    color: var(--light-purple);
+}
+
 .left-nav-link:hover {
     color: var(--light-purple);
 }
 
+/* Styling for Timeline Buttons */
 .left-nav-link:before {
     content: "";
     position: absolute;
-    background: var(--light-purple);
-    width: 30px;
-    height: 30px;
-    left: 146px;
+    background: #fff;
+    width: 32px;
+    height: 32px;
+    left: 143px;
     border-radius: 50%;
+    border: 2px solid var(--silver);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--light-purple);
+}
+
+.left-nav-link:before:hover {
+    background-color: var(--light-purple);
+}
+
+.left-nav-link.one:before {
+    content: "1";
+}
+
+.left-nav-link.two:before {
+    content: "2";
+}
+
+.left-nav-link.three:before {
+    content: "3";
+}
+
+.left-nav-link.four:before {
+    content: "4";
+}
+.left-nav-link.five:before {
+    content: "5";
+}
+
+.left-nav-link.check:before {
+    content: "";
+    position: absolute;
+    background: var(--light-purple); 
+    background-image: url('checkmark.svg'); 
+    background-size: 18px 18px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 32px; 
+    height: 32px; 
+    left: 143px;
+    border-radius: 50%;
+    border: 2px solid var(--silver);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff; 
+    transition: background-color 0.5s; 
+
+}
+
+.left-nav-link.ts:before {
+    border: 2px solid var(--light-purple);
+}
+
+/* Styling for Timeline Lines */
+.left-nav-link::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    left: 160px;
+    top: 0;    
+    z-index: 0;
+}
+
+.left-nav-link.tl::after {
+    background: var(--silver);
+    height: 80px;
+    margin-top: 60px;
+}
+
+.left-nav-link.ts::after {
+    background: var(--light-purple);
+    z-index: 1;
+}
+
+.left-nav-link.two.tl::after {
+    margin-top: 80px;
+}
+.left-nav-link.two.ts::after {
+    height: 80px;
+    margin-top: 80px;
+}
+
+.left-nav-link.three.tl::after {
+    margin-top: 160px;
+}
+.left-nav-link.three.ts::after {
+    height: 160px;
+    margin-top: 80px;
+}
+
+.left-nav-link.four.tl::after {
+    margin-top: 240px;
+}
+.left-nav-link.four.ts::after {
+    height: 240px;
+    margin-top: 80px;
+}
+
+.left-nav-link.five.tl::after {
+    margin-top: 320px;
+}
+.left-nav-link.five.ts::after {
+    height: 320px;
+    margin-top: 80px;
 }
