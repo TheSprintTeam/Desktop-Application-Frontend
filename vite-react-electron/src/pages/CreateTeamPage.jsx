@@ -5,6 +5,7 @@ import ReviewCreateTeam from "../components/ReviewCreateTeam";
 import LeftNavbar from "../components/LeftNavbar";
 import InviteUsers from "../components/InviteUsers";
 import Recommendations from "../components/Recommendations";
+import SearchEngine from "../components/SearchEngine";
 
 export default function CreateTeamPage() {
     const projectInfo = {
@@ -36,11 +37,11 @@ export default function CreateTeamPage() {
         titleContent = "Project Info"
         itemContent = (<ProjectInfo project={project} onProjectChange={setProject}/>);
     } else if (screen === 2) {
-        titleContent = "Search Engine"
-        itemContent = (<div>testing</div>);
-    } else if (screen === 3) {
         titleContent = "Recommendations"
         itemContent = (<Recommendations project={project} onProjectChange={setProject} recommendations={recommendations} onRecommendationsChange={setRecommendations} />);
+    } else if (screen === 3) {
+        titleContent = "Search Engine"
+        itemContent = (<SearchEngine project={project} onProjectChange={setProject} />);
     } else if (screen === 4) {
       titleContent = "Invitations"
       //itemContent = (<SendInvites invites={invites} onInvitesChange={onFormChange}/>);
