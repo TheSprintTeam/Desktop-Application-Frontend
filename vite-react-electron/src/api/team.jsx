@@ -89,7 +89,7 @@ export async function installOnTeam(team_id) {
 
 // POST Request for rec eng --> returns an array of technologies
 export async function recEngTeam(description) {
-    return await resolve(axios.post(rec_eng_url+"/predict", {
+    return await resolve(axios.post(base_url+"/teams/ml/send-recommendations", {
         description: description,
     })
     .then(res => res.data));
