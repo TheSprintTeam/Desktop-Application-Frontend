@@ -11,6 +11,9 @@ import "../assets/css/SignupPage.css";
 import { FaGoogle, FaMicrosoft, FaArrowLeft } from "react-icons/fa6"
 
 export default function SignupPage() {
+
+    const navigate = useNavigate();
+
     const accountInfo = {
         "email": "",
         "firstname": "",
@@ -69,6 +72,7 @@ export default function SignupPage() {
 
     async function handleClickVerify() {
         let response = await verifyUser(OTPCode);
+        console.log(response);
 
         // handle the response here
         if (response.error) {
@@ -87,7 +91,7 @@ export default function SignupPage() {
                 children: "You have successfully verified your account and can start using Sprint! Redirecting you back to the home page in 3 seconds.",
                 showModal: true
             });
-            // redirect to home page
+            navigate("/");
         }
     }
 
@@ -154,11 +158,7 @@ export default function SignupPage() {
                     {showError.password && <div className="input-error">Password must be at least 8 characters</div>}
                 </div>
                 <Button type="submit" className="signup-button-next" children={"Create Account"}
-                    onClick={() => (account.firstname && account.lastname && account.password) ? handleClickSubmit : setModalContent({
-                        title: "Error",
-                        children: "Please fill in all the fields before submitting.",
-                        showModal: true
-                    })} 
+                    onClick={handleClickSubmit}
                 />
             </div>
         );
@@ -174,11 +174,7 @@ export default function SignupPage() {
                     <InputField className="signup-input-field" value={OTPCode ? OTPCode : ""} onChange={e => setOTPCode(e.target.value)}/>
                 </div>
                 <Button type={"button"} className={"signup-button-next"} children={"Verify"}
-                    onClick={() => OTPCode ? handleClickVerify : setModalContent({
-                        title: "Error",
-                        children: "Please fill in all the fields before submitting.",
-                        showModal: true
-                    })} 
+                    onClick={handleClickVerify} 
                 />
             </div>
         );
