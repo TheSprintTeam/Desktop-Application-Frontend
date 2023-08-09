@@ -43,7 +43,7 @@ export async function verifyUser(otp_code) {
 
 // POST Request for logging out a user
 export async function logoutUser() {
-    return await resolve(axios.post(base_url+"/users/logout", null, {
+    return await resolve(axios.post(base_url+"/users/logout/", null, {
         withCredentials: true
     })
     .then(res => res.data));
