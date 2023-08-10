@@ -11,7 +11,7 @@ export function Accordion({ title, children, onChangeScreen }) {
         if (title === "Project Info") {
             onChangeScreen(1);
         } else if (title === "Invitations") {
-            onChangeScreen(2);
+            onChangeScreen(4);
         }
     }
     
