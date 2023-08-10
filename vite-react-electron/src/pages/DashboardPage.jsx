@@ -4,6 +4,10 @@ import "../assets/css/DashboardPage.css";
 
 import { FaPlus, FaPeopleGroup } from "react-icons/fa6"
 
+import imageleft from "../assets/css/imageleft.svg"
+import imageleftcircle from "../assets/css/imageleftcircle.png"
+
+
 export default function DashboardPage() {
     const navigate = useNavigate();
 
@@ -17,6 +21,8 @@ export default function DashboardPage() {
 
     return (
         <div className="dashpage-outer">
+            {/* <img src={imageleft} alt="Left Image" className="dashpage-image-left" />
+            <img src={imageleftcircle} alt="left image circle" className="dashpage-image-left-circle" /> */}
             <h1 className="dashpage-title">Welcome to Sprint!</h1>
             <p className="dashpage-desc">To make the most of Sprint, you must either create a team or join a team.</p>
             <div className="dashpage-inner">

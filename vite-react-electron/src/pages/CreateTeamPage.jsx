@@ -21,40 +21,67 @@ export default function CreateTeamPage() {
         recs: [],
         acceptedRecs: []
     }
-
+    
     const [project, setProject] = useState(projectInfo);
     const [invites, setInvites] = useState(invitesInfo);
     const [recommendations, setRecommendations] = useState(recsInfo);
     const [screen, setScreen] = useState(1);
+    const [selectedTechnologies, setSelectedTechnologies] = useState([]);
 
+    const handleSelectedTechnologiesChange = (newSelectedTechnologies) => {
+        setSelectedTechnologies(newSelectedTechnologies);
+    };
+    const handleProjectTechnologiesChange = (newTechnologies) => {
+        setProject({ ...project, technologies: newTechnologies });
+    };
     const handleChangeScreen = (newScreen) => {
         setScreen(newScreen);
     }
 
-    let titleContent
-    let itemContent
+    const combinedTechnologies = [...project.technologies, ...selectedTechnologies];
+
+    let titleContent;
+    let itemContent;
     if (screen === 1) {
-        titleContent = "Project Info"
-        itemContent = (<ProjectInfo project={project} onProjectChange={setProject}/>);
-    } else if (screen === 2) {
-        titleContent = "Recommendations"
-        itemContent = (<Recommendations project={project} onProjectChange={setProject} recommendations={recommendations} onRecommendationsChange={setRecommendations} />);
+        titleContent = "Project Info";
+        itemContent = (
+            <ProjectInfo
+                project={project}
+                onProjectChange={setProject}
+                selectedTechnologies={handleProjectTechnologiesChange}
+            />
+        );
     } else if (screen === 3) {
-        titleContent = "Search Engine"
-        itemContent = (<SearchEngine project={project} onProjectChange={setProject} />);
-    } else if (screen === 4) {
-      titleContent = "Invitations"
-      //itemContent = (<SendInvites invites={invites} onInvitesChange={onFormChange}/>);
-      itemContent = (<InviteUsers invites={invites} onInvitesChange={setInvites}/>);
+        titleContent = "Search Engine";
+        itemContent = (
+            <SearchEngine
+                project={project}
+                selectedTechnologies={selectedTechnologies}
+                setSelectedTechnologies={handleSelectedTechnologiesChange}
+            />
+        );
     } else if (screen === 5) {
-        titleContent = "Review"
-        itemContent = (<ReviewCreateTeam project={project} invites = {invites} onChangeScreen={handleChangeScreen}/>);
+        titleContent = "Review";
+        itemContent = (
+            <ReviewCreateTeam
+                project={project}
+                invites={invites}
+                onChangeScreen={handleChangeScreen}
+                selectedTechnologies={selectedTechnologies}
+            />
+        );
     } 
+
     return (
         <>
-            <LeftNavbar screen={screen} onChangeScreen={handleChangeScreen}/>
-            <CreateTeam title={titleContent} children={itemContent} screen={screen} onChangeScreen={handleChangeScreen}
-                project={project} invites={invites}
+            <LeftNavbar screen={screen} onChangeScreen={handleChangeScreen} />
+            <CreateTeam
+                title={titleContent}
+                children={itemContent}
+                screen={screen}
+                onChangeScreen={handleChangeScreen}
+                project={project}
+                invites={invites}
             />
         </>
     );
