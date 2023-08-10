@@ -18,7 +18,7 @@ export default function Recommendations({ project, onProjectChange, recommendati
         const getRecommendations = async () => {
             let response = await recEngTeam(project.description);
             console.log(response);
-            onRecommendationsChange((prevRecs) => ({ ...prevRecs, recs: recsConst}));
+            onRecommendationsChange((prevRecs) => ({ ...prevRecs, recs: response.data.body.recommendations}));
         }
 
         getRecommendations();
