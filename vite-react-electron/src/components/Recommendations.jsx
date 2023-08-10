@@ -7,18 +7,15 @@ import "../assets/css/Recommendations.css";
 export default function Recommendations({ project, onProjectChange, recommendations, onRecommendationsChange }) {
     // temporary (set to recommendations after deleting the const recommendations objects)
 
-    const recsConst = [
-        "python",
-        "ansible",
-        "javascript",
-        "java"
-    ];
-
     useEffect(() => {
         const getRecommendations = async () => {
             let response = await recEngTeam(project.description);
             console.log(response);
-            onRecommendationsChange((prevRecs) => ({ ...prevRecs, recs: response.data.body.recommendations}));
+            if (response.error) {
+                console.log("error fetching data")
+            } else {
+                onRecommendationsChange((prevRecs) => ({ ...prevRecs, recs: response.data.body.recommendations}));
+            }
         }
 
         getRecommendations();
