@@ -91,7 +91,10 @@ export default function SignupPage() {
                 children: "You have successfully verified your account and can start using Sprint! Redirecting you back to the home page in 3 seconds.",
                 showModal: true
             });
-            navigate("/");
+            setTimeout(() => {
+                navigate("/");
+                window.location.reload();
+            }, 3000);
         }
     }
 
