@@ -1,7 +1,16 @@
 import { Accordion } from "./Accordion"
+import React, { useEffect, useState } from "react";
 
-export default function ReviewCreateTeam({ project , invites, onChangeScreen }) {
-    
+export default function ReviewCreateTeam({ project , invites, selectedTechnologies, onChangeScreen}) {
+    const [combinedTechnologies, setCombinedTechnologies] = useState([]);
+
+    // Recalculate combinedTechnologies when project or selectedTechnologies change
+    useEffect(() => {
+        const newCombinedTechnologies = [...project.technologies, ...selectedTechnologies];
+        setCombinedTechnologies(newCombinedTechnologies);
+    }, [project.technologies, selectedTechnologies]);
+
+
     return (
         <>
             <Accordion title="Project Info" onChangeScreen={onChangeScreen} children={
@@ -16,11 +25,11 @@ export default function ReviewCreateTeam({ project , invites, onChangeScreen }) 
                     </div>
                     <div className="accordion-key-value-container">
                         <div className="accordion-key">Technologies</div>
-                        <div className="accordion-value">{project.technologies.map((tech, index) => {
-                            if (project.technologies.length - 1 === index) {
-                                return (<span key={index}>{tech}</span>)
+                        <div className="accordion-value">{combinedTechnologies.map((tech, index) => {
+                            if (combinedTechnologies.length - 1 === index) {
+                                return (<span key={index}>{tech}</span>);
                             } else {
-                                return (<span key={index}>{tech}, </span>)
+                                return (<span key={index}>{tech}, </span>);
                             }
                             })}</div>
                     </div>

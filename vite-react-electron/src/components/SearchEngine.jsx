@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { FaTimes, FaSearch } from "react-icons/fa";
 import "../assets/css/SearchEngine.css";
 
-export default function SearchEngine({ project, onProjectChange }) {
+export default function SearchEngine({ project, onProjectChange, selectedTechnologies, setSelectedTechnologies }) {
     const [searchQuery, setSearchQuery] = useState("");
-    const [selectedTechnologies, setSelectedTechnologies] = useState([]);
 
     const handleSearchInputChange = (e) => {
         setSearchQuery(e.target.value);
@@ -12,7 +11,13 @@ export default function SearchEngine({ project, onProjectChange }) {
 
     const handleKeyUp = (e) => {
         if (e.key === "Enter" && searchQuery.trim() !== "") {
-            setSelectedTechnologies([...selectedTechnologies, searchQuery.trim()]);
+            const updatedTechnologies = [...selectedTechnologies, searchQuery.trim()];
+            setSelectedTechnologies(updatedTechnologies);
+
+            // Update project's technologies when selectedTechnologies change
+            const updatedProject = { ...project, technologies: updatedTechnologies };
+            onProjectChange(updatedProject);
+
             setSearchQuery(""); // Clear search query after selecting
         }
     };
@@ -20,13 +25,15 @@ export default function SearchEngine({ project, onProjectChange }) {
     const handleRemoveTechnology = (index) => {
         const updatedTechnologies = selectedTechnologies.filter((_, i) => i !== index);
         setSelectedTechnologies(updatedTechnologies);
-    };
 
-    const updatedProject = { ...project, technologies: selectedTechnologies };
+        // Update project's technologies when selectedTechnologies change
+        const updatedProject = { ...project, technologies: updatedTechnologies };
+        onProjectChange(updatedProject);
+    };
 
     return (
         <div className="search-engine-container">
-             <div className="search-description">
+            <div className="search-description">
                 You can use the following engine to search for any missing technologies:
             </div>
             <div className="search-bar">
