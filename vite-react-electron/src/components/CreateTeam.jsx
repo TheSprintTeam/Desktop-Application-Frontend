@@ -36,7 +36,7 @@ export default function CreateTeam({ title, children, screen, onChangeScreen, pr
     const handleSubmitClick = async () => {
         // handles submitting to backend
         let response = await createTeam( project.name, project.description, project.technologies );
-        let team_id;
+        let teamId;
         if (response.error) {
             console.log("error creating team");
             setModalContent({
@@ -46,10 +46,10 @@ export default function CreateTeam({ title, children, screen, onChangeScreen, pr
             });
         } else {
             console.log("success creating team");
-            team_id = response.data.team.id;
+            teamId = response.data.team.id;
         }
         invites.users.forEach((user) => {
-            inviteUserToTeam(team_id, user.email, mapRoleToId(user.userRole))
+            inviteUserToTeam(teamId, user.email, mapRoleToId(user.userRole))
         });
         setModalContent({
             title: "Success",
@@ -57,7 +57,7 @@ export default function CreateTeam({ title, children, screen, onChangeScreen, pr
             showModal: true
         });
         setTimeout(() => {
-            navigate("/clickInstall");
+            navigate("/install/"+String(teamId));
             window.location.reload();
         }, 3000);
     }
