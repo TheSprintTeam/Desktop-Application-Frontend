@@ -208,3 +208,18 @@ button:disabled:hover {
 .button-invite:focus {
     outline: none;
 }
+
+/* Styling for View Teams Button Invite */
+.view-teams-invite-button {
+    background-color: var(--light-purple);
+    border: 1px solid var(--gray-opa2);
+    font-size: 20px;
+    font-weight: bold;
+    height: 48px;
+    line-height: 10px;
+    outline: none;
+    color: #fff;
+    transition: 0.3s;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 2px;
+    width: 100%;
+}
