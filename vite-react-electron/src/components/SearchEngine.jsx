@@ -1,28 +1,26 @@
-import React, { useState } from "react";
+import { useState, useCallback } from "react";
 import { FaTimes, FaSearch } from "react-icons/fa";
 import "../assets/css/SearchEngine.css";
 
 export default function SearchEngine({ project, onProjectChange }) {
     const [searchQuery, setSearchQuery] = useState("");
-    const [selectedTechnologies, setSelectedTechnologies] = useState([]);
 
     const handleSearchInputChange = (e) => {
         setSearchQuery(e.target.value);
     };
 
-    const handleKeyUp = (e) => {
+    const handleKeyUp = useCallback(e => {
         if (e.key === "Enter" && searchQuery.trim() !== "") {
-            setSelectedTechnologies([...selectedTechnologies, searchQuery.trim()]);
+            const updatedTechnologies = [...project.technologies, searchQuery.trim()];
+            onProjectChange({ ...project, technologies: updatedTechnologies});
             setSearchQuery(""); // Clear search query after selecting
         }
-    };
+    }, [searchQuery, project, onProjectChange]);
 
-    const handleRemoveTechnology = (index) => {
-        const updatedTechnologies = selectedTechnologies.filter((_, i) => i !== index);
-        setSelectedTechnologies(updatedTechnologies);
-    };
-
-    const updatedProject = { ...project, technologies: selectedTechnologies };
+    const handleRemoveTechnology = useCallback((index) => {
+        const updatedTechnologies = project.technologies.filter((_, i) => i !== index);
+        onProjectChange({ ...project, technologies: updatedTechnologies});
+    }, [project, onProjectChange]);
 
     return (
         <div className="search-engine-container">
@@ -41,7 +39,7 @@ export default function SearchEngine({ project, onProjectChange }) {
                 />
             </div>
             <div className="selected-technologies">
-                {selectedTechnologies.map((technology, index) => (
+                {project.technologies.map((technology, index) => (
                     <div key={index} className="selected-technology">
                         {technology}
                         <span className="technology-remove" onClick={() => handleRemoveTechnology(index)}>
