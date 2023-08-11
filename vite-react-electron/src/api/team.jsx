@@ -94,3 +94,13 @@ export async function recEngTeam(description) {
     })
     .then(res => res.data));
 }
+
+export async function sendFormData(prompt, technologies, recommendations){
+    formData  = {
+        "prompt" : prompt,
+        "selected_technologies" : technologies,
+        "recommendations" : json.dumps(recommendations)
+    };
+    return await resolve(axios.post(base_url + "teams/ml/formSubmission"),
+    formData);
+}
