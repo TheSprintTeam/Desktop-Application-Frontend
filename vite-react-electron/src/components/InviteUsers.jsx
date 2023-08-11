@@ -13,7 +13,6 @@ export default function InviteUsers({ invites, onInvitesChange }) {
   }
   const [inviteUser, setInviteUser] = useState(userInfo)
   const [editIndex, setEditIndex] = useState(-1)
-  console.log(roles);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

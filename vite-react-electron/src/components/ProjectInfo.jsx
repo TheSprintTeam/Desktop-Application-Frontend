@@ -14,8 +14,8 @@ export default function ProjectInfo({ project, onProjectChange }) {
 
     const handleKeyUp = useCallback(e => {
         if (e.key === "Enter" && technology.trim() !== "") {
-            const updateTechnologies = [...project.technologies, technology.trim()];
-            onProjectChange({ ...project, technologies: updateTechnologies});
+            const updatedTechnologies = [...project.technologies, technology.trim()];
+            onProjectChange({ ...project, technologies: updatedTechnologies});
             setTechnology("");
         }
     }, [technology, project, onProjectChange])
@@ -23,7 +23,7 @@ export default function ProjectInfo({ project, onProjectChange }) {
     const removeElement = useCallback((index) => {
         const newTechnologies = project.technologies.filter((_, i) => i !== index);
         onProjectChange({ ...project, technologies: newTechnologies});
-    }, [technology, project, onProjectChange])
+    }, [project, onProjectChange])
 
     console.log(project);
 
