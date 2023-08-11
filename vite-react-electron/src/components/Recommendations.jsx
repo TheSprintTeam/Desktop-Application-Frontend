@@ -1,26 +1,10 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useCallback } from 'react';
 import { FaTrash } from 'react-icons/fa6';
 import { AccordionRecommendation } from "../components/Accordion";
-import { recEngTeam } from '../api/team';
 import "../assets/css/Recommendations.css";
 
-export default function Recommendations({ project, onProjectChange, recommendations, onRecommendationsChange }) {
-    // temporary (set to recommendations after deleting the const recommendations objects)
-
-    useEffect(() => {
-        const getRecommendations = async () => {
-            let response = await recEngTeam(project.description);
-            console.log(response);
-            if (response.error) {
-                console.log("error fetching data")
-            } else {
-                onRecommendationsChange((prevRecs) => ({ ...prevRecs, recs: response.data.body.recommendations}));
-            }
-        }
-
-        getRecommendations();
-    }, [])
-
+export default function Recommendations({ recommendations, onRecommendationsChange }) {
+    
     const handleAddRec = useCallback((technology) => {
         // add to acceptedRecs
         onRecommendationsChange((prevRecommendations) => ({
@@ -34,13 +18,7 @@ export default function Recommendations({ project, onProjectChange, recommendati
             recs: prevRecommendations.recs.filter((tech) => tech !== technology)
         }));
 
-        // add to project
-        onProjectChange((prevProject) => ({
-            ...prevProject,
-            technologies: [...prevProject.technologies, technology],
-        }));
-
-    }, [recommendations, onRecommendationsChange, project, onProjectChange]);
+    }, [recommendations, onRecommendationsChange]);
 
     const handleRejectRec = (technology) => {
         onRecommendationsChange((prevRecommendations) => ({
@@ -62,16 +40,9 @@ export default function Recommendations({ project, onProjectChange, recommendati
             recs: [...prevRecommendations.recs, technology]
         }));
 
-        // remove from project
-        onProjectChange((prevProject) => ({
-            ...prevProject,
-            technologies: prevProject.technologies.filter((tech) => tech !== technology),
-        }));
-
-    }, [recommendations, onRecommendationsChange, project, onProjectChange]);
+    }, [recommendations, onRecommendationsChange]);
 
     console.log(recommendations);
-    console.log(project.technologies);
 
     return (
         <>
