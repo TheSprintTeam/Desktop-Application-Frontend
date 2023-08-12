@@ -99,7 +99,7 @@
     content: "";
     position: absolute;
     background: var(--light-purple); 
-    background-image: url('checkmark.svg'); 
+    background-image: url('../images/checkmark.svg'); 
     background-size: 18px 18px;
     background-repeat: no-repeat;
     background-position: center;

@@ -1,7 +1,8 @@
 import { Accordion } from "./Accordion"
 
-export default function ReviewCreateTeam({ project , invites, onChangeScreen }) {
-    
+export default function ReviewCreateTeam({ project, invites, recs, onChangeScreen }) {
+    const combinedTechnologies = [...project.technologies, ...recs.acceptedRecs]
+
     return (
         <>
             <Accordion title="Project Info" onChangeScreen={onChangeScreen} children={
@@ -16,8 +17,8 @@ export default function ReviewCreateTeam({ project , invites, onChangeScreen }) 
                     </div>
                     <div className="accordion-key-value-container">
                         <div className="accordion-key">Technologies</div>
-                        <div className="accordion-value">{project.technologies.map((tech, index) => {
-                            if (project.technologies.length - 1 === index) {
+                        <div className="accordion-value">{combinedTechnologies.map((tech, index) => {
+                            if (combinedTechnologies.length - 1 === index) {
                                 return (<span key={index}>{tech}</span>)
                             } else {
                                 return (<span key={index}>{tech}, </span>)

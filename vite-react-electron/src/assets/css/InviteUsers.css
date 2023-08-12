@@ -79,3 +79,18 @@
     color: rgb(18, 175, 223);
     cursor: pointer;
 }
+
+.outer-invite {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    width: 1000px;
+    padding-top: 120px;
+}
+
+.outer-invite-title {
+    text-align: center;
+    font-size: 48px;
+    margin: 0px;
+}

@@ -46,22 +46,23 @@ export default function CreateTeam({ title, children, screen, onChangeScreen, pr
             });
         } else {
             console.log("success creating team");
+            console.log(response);
             teamId = response.data.team.id;
-        }
-        invites.users.forEach((user) => {
-            inviteUserToTeam(teamId, user.email, mapRoleToId(user.userRole))
-        });
-        
+            invites.users.forEach((user) => {
+                inviteUserToTeam(teamId, user.email, mapRoleToId(user.userRole));
+            });
+            
         sendFormData(project.description, project.technologies, recsInfo.recs )
         setModalContent({
-            title: "Success",
-            children: "You successfully created your team. Redirecting to the dashboard in 3 seconds...",
-            showModal: true
-        });
-        setTimeout(() => {
-            navigate("/install/"+String(teamId));
-            window.location.reload();
-        }, 3000);
+                title: "Success",
+                children: "You successfully created your team. Redirecting to the dashboard in 3 seconds...",
+                showModal: true
+            });
+            setTimeout(() => {
+                navigate("/install/"+String(teamId));
+                window.location.reload();
+            }, 3000);
+        }
     }
     
     return (

@@ -6,6 +6,31 @@
     justify-content: center;
     flex-direction: column;
     padding-top: 120px;
+    position: relative;
+}
+
+.dashpage-image-left {
+    position: absolute;
+    bottom: 0;
+
+    /* width: 100px; 
+    height: 100px;  */
+    width: 250px;
+}
+.dashpage-image-left-circle {
+    position: absolute;
+    top: 0;
+    /* width: 100px; 
+    height: 100px;  */
+    width:auto;
+    height: auto;
+}
+.dashpage-image-left {
+    left: 0;
+}
+
+.dashpage-image-right {
+    left: 20px;
 }
 
 .dashpage-title {
