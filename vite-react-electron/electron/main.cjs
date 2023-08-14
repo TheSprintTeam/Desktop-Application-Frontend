@@ -3,8 +3,8 @@ const path = require("path")
 
 const createWindow = () => {
     const win = new BrowserWindow({
-        width: 800,
-        height: 600,
+        width: 1500,
+        height: 1200,
         icon: path.join(app.getAppPath(), "public/sprint_logo.ico")
     })
 
