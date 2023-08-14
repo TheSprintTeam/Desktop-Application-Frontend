@@ -1,5 +1,5 @@
 .recs-inner {
-    padding-bottom: 24px;
+    padding-bottom: 4em;
 }
 .recs-table {
     table-layout: fixed;
@@ -13,7 +13,7 @@
 }
 
 .recs-tech, .recs-action {
-    padding: 16px;
+    padding: 1vw;
 }
 
 .recs-tech {
@@ -37,14 +37,14 @@
 }
 
 .pending-recs-tech, .pending-recs-actions {
-    padding: 16px 0px;
+    padding: 3em 0;
 }
 .pending-recs-actions {
     text-align: center;
 }
 
 .action-item {
-    margin: 0px 6px;
+    margin: 0 1em;
     font-weight: 500;
     cursor: pointer;
 }
@@ -66,12 +66,12 @@
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
-    border: 1px solid #edf2f7;
+    border: 0.1em solid #edf2f7;
     border-radius: 0 0 8px 8px;
 }
 
 .accepted-recs-tech, .accepted-recs-actions {
-    padding: 16px;
+    padding: 3em;
 }
 
 .accepted-recs-actions {

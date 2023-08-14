@@ -18,7 +18,7 @@
     border: 1px solid #000;
     border-radius: 4px;
     padding: 10px;
-    width: 100%;
+    width: 60vw;
 }
 
 .search-icon {
@@ -57,3 +57,33 @@
     cursor: pointer;
 
 }
+
+.suggestion-list {
+    border: 1px solid #000;
+    border-top: none;
+    max-height: 150px;
+    overflow-y: auto;
+    /* position: absolute; */
+    background-color: #fff;
+    width: 60.8vw;
+    border-radius: 0 0 4px 4px;
+    z-index: 1;
+    top: calc(100% + 2px);
+
+    
+  }
+  
+  .suggestion-item {
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+  }
+  
+  .suggestion-item.highlighted,
+  .suggestion-item:hover {
+    background-color: #bea6ef;
+  }
+  
