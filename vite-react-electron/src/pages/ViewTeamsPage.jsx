@@ -60,7 +60,7 @@ export default function ViewTeams({ userLoggedIn }) {
                     {teams.map((team) => {
                         return (
                             <div className="team-accordion-container" key={team.id}>
-                                <AccordionTeams title={team.name} teamId={team.id} children={
+                                <AccordionTeams title={team.name} teamId={team.id} membersList={team.members} children={
                                     <>
                                         <div className="top-container-desc">{team.description}</div>
                                         <table>

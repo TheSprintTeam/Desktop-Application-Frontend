@@ -223,3 +223,29 @@ button:disabled:hover {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 2px;
     width: 100%;
 }
+
+/* Styling for Select Members Button */
+.select-button {
+    max-width: fit-content;
+    background-color: var(--light-gray);
+    border: 1px solid var(--gray-opa2);
+    padding: 6px;
+    border-radius: 4px;
+    outline: none;
+    color: #000;
+    font-size: 16px;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.select-button:hover {
+    outline: none;
+    border: 1px solid lightcoral;
+    background-color: var(yellow);
+    color: lightcoral;
+}
+
+.select-button:focus {
+    outline: none;
+    border: 1px solid var(--gray-opa2);
+}

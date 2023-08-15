@@ -42,7 +42,7 @@ export function Accordion({ title, children, onChangeScreen }) {
     );
 }
 
-export function AccordionTeams({ title, children, teamId }) {
+export function AccordionTeams({ title, children, teamId, membersList }) {
     const navigate = useNavigate();
     const [open, setOpen] = useState(false);
     
@@ -56,11 +56,11 @@ export function AccordionTeams({ title, children, teamId }) {
                         </div>
                     </div>
                     <div className="accordion-right">
-                        <div className="accordion-edit-icon install" onClick={() => navigate("/install/"+String(teamId))}>
+                        <div className="accordion-edit-icon install" onClick={() => navigate("/install/"+String(teamId), { state: { team_members: membersList }})}>
                             <span className="accordion-pen"><FaDownload /></span>
                             Install
                         </div>
-                        <div className="accordion-edit-icon invites" onClick={() => navigate("/sendInvite/"+String(teamId))}>
+                        <div className="accordion-edit-icon invites" onClick={() => navigate("/sendInvite/"+String(teamId),)}>
                             <span className="accordion-pen"><FaUserPlus /></span>
                             Send Invites
                         </div>

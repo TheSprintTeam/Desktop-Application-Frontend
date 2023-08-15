@@ -1,0 +1,60 @@
+.select-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: var(--light-white);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease-in-out;
+}
+
+/*.select-btn:hover {
+    background-color: var(--light-purple);
+}
+
+.select-btn.show {
+    background-color: var(--light-purple);
+}*/
+
+.select-btn-text {
+    font-size: 18px;
+    font-weight: 400;
+    color: #333;
+}
+
+.select-btn-arrow-dwn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.select-btn.show .select-btn-arrow-dwn {
+    transform: rotate(-180deg);
+}
+
+.select-list-items {
+    max-height: 0px;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0, 1, 0, 1);
+}
+
+.select-list-items.show {
+    position: relative;
+    margin-top: 16px;
+    border-radius: 8px;
+    padding: 16px;
+    background-color: var(--light-white);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    height: auto;
+    max-height: fit-content;
+}
+
+.select-button-container {
+    flex-grow: 1;
+    display: flex;
+    gap: .5em;
+    flex-wrap: wrap;
+}
