@@ -5,6 +5,7 @@ import Button from "../components/Button";
 import { Select } from "../components/Select";
 import { FaCheck } from "react-icons/fa6";
 import "../assets/css/InstallPage.css";
+import ProgressBar from "../components/ProgressBar";
 
 export default function InstallPage() {
     const navigate = useNavigate();
@@ -74,6 +75,7 @@ export default function InstallPage() {
                     </>
                     }
                 />
+                <ProgressBar value={30} />
             </div>
         </div>
     );
