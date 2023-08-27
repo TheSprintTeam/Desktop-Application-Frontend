@@ -13,6 +13,16 @@ export function isEmptyObjectField(obj) {
     return false;
 };
 
+export function getBackgroundColor(value, status) {
+    if (value === 100) {
+        return "green";
+    } else if (value < 100 && status === "Pending") {
+        return "var(--light-purple)";
+    } else if (status === "Failed") {
+        return "red";
+    }
+}
+
 export const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
