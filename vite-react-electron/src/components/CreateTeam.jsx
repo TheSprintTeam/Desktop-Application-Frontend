@@ -4,11 +4,11 @@ import Button from "./Button";
 import PopupModal from "./PopupModal";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 import { isEmptyObjectField, mapRoleToId } from "../utils/helpers";
-import { createTeam, inviteUserToTeam, sendFormData} from "../api/team";
+import { createTeam, inviteUserToTeam } from "../api/team";
 
-import "../assets/css/CreateTeam.css";
+import "../assets/css/NewCreateTeam.css";
 
-export default function CreateTeam({ title, children, screen, onChangeScreen, project, invites, recsInfo}) {
+export default function CreateTeam({ title, children, screen, onChangeScreen, project, invites }) {
     const navigate = useNavigate();
 
     const [modalContent, setModalContent] = useState({
@@ -51,9 +51,7 @@ export default function CreateTeam({ title, children, screen, onChangeScreen, pr
             invites.users.forEach((user) => {
                 inviteUserToTeam(teamId, user.email, mapRoleToId(user.userRole));
             });
-            
-        sendFormData(project.description, project.technologies, recsInfo.recs )
-        setModalContent({
+            setModalContent({
                 title: "Success",
                 children: "You successfully created your team. Redirecting to the dashboard in 3 seconds...",
                 showModal: true
