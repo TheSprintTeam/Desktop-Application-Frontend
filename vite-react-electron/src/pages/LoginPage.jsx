@@ -33,7 +33,7 @@ export default function LoginPage() {
                 console.log("error logging in to account!");
                 setModalContent({
                     title: "Error",
-                    children: "There was an error logging in to your account, please try again. Error: " + response.error,
+                    children: "There was an error logging in to your account, please try again. Error: " + response.error.response.data.detail,
                     showModal: true
                 });
             } else {

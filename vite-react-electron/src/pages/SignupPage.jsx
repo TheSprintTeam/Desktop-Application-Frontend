@@ -79,7 +79,7 @@ export default function SignupPage() {
             console.log("error verifying account!");
             setModalContent({
                 title: "Error",
-                children: "There was an error verifying your account, please try again. Error: " + response.error,
+                children: "There was an error verifying your account, please try again. Error: " + response.error.response.data.detail,
                 showModal: true
             });
         } else {
