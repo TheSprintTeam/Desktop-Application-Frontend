@@ -5,15 +5,15 @@
 }
 
 .progress-bar {
-    width: 450px;
-    height: 80px;
+    width: 10rem;
+    height: 1rem;
     display: flex;
     flex-direction: row;
     justify-content: start;
     align-items: stretch;
     border-radius: 60px;
     background-color: var(--light-gray);
-    box-shadow: 0px 0px 20px #111;
+    box-shadow: 0px 0px 10px #111;
     overflow: hidden;
 }
 
@@ -28,11 +28,11 @@
 }
 
 .progress-bar-text-container {
-    width: 30px;
-    margin-left: 30px;
+    width: 1.5rem;
+    margin-left: 0.75rem;
     display: flex;
     flex-direction: row;
-    color: white;
+    color: #000;
     font-weight: bold;
-    font-size: 32px;
+    font-size: 1rem;
 }

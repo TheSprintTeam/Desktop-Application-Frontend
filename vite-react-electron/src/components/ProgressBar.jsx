@@ -1,8 +1,9 @@
 import { useEffect, useRef } from "react";
 import { motion, animate } from "framer-motion";
+import { getBackgroundColor } from "../utils/helpers";
 import "../assets/css/ProgressBar.css";
 
-export default function ProgressBar({ value }) {
+export default function ProgressBar({ value, status}) {
     const progressTextRef = useRef(null);
     useEffect(() => {
         const progressText = progressTextRef.current?.textContent;
@@ -29,8 +30,8 @@ export default function ProgressBar({ value }) {
                 }}
                 />
             </div>
-            <div className="progress-bar-text-container">
-                <p ref={progressTextRef}>0</p>
+            <div className="progress-bar-text-container" style={{color: getBackgroundColor(value, status)}}>
+                <p ref={progressTextRef}>{value}</p>
                 <p>%</p>
             </div>
         </div>
