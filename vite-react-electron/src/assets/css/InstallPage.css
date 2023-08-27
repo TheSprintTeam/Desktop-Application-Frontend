@@ -15,17 +15,6 @@
     padding-bottom: 8px;
 }
 
-.select-list-items.show {
-    position: relative;
-    margin-top: 16px;
-    border-radius: 8px;
-    padding: 16px;
-    background-color: var(--light-white);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    height: auto;
-    max-height: fit-content;
-}
-
 .select-list-items.show .members-item {
     display: flex;
     align-items: center;
@@ -69,4 +58,13 @@
     font-size: 16px;
     font-weight: 400;
     pointer-events: none;
+}
+
+.team-members-installations-container {
+    padding: 32px;
+}
+
+.team-memembers-installations-title {
+    font-weight: bold;
+    font-size: 30px;
 }

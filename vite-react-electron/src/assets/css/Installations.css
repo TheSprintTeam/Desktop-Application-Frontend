@@ -1,0 +1,201 @@
+.installation-manager-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-content: flex-start;
+}
+
+.installation-left-container {
+    padding: 16px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 25.5rem;
+}
+
+.searchbox-container {
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.searchbox-members {
+    outline: none;
+    border: none;
+    flex: 1;
+    padding: 8px;
+    font-size: 1.125rem;
+}
+
+.searchbox-icon {
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.125rem;
+}
+
+.members-dropdown-container-installation {
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.3s ease-in-out;
+    overflow-y: auto;
+}
+
+.members-dropdown-items-installation {
+    position: relative;
+    margin-top: 16px;
+    padding: 0 0 16px 0px;
+    height: auto;
+    max-height: fit-content;
+    list-style: none;
+}
+
+.members-item-installations {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    height: 48px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    padding: 4px;
+}
+
+.members-item-installations.selected {
+    background-color: rgba(159, 122, 234, 0.12);
+}
+
+.members-item-installations:hover {
+    background-color: rgba(159, 122, 234, 0.12);
+}
+
+.members-progress {
+    margin-right: 1rem;
+}
+
+.member-item-text {
+    font-size: 1.125rem;
+    color: #8a8a8e;
+    font-weight: 500;
+}
+
+.members-item-installations.selected .member-item-text {
+    color: var(--light-purple);
+}
+
+.member-item-role {
+    font-size: 1.125rem;
+    color: #a0aec0;
+    font-weight: 500;
+}
+
+.installation-right-container {
+    margin-left: 8rem;
+    flex-grow: 1;
+}
+
+.installation-title {
+    font-size: 1.875rem;
+    font-weight: bold;
+    color: #525256;
+    margin-bottom: 1.25rem;
+}
+
+.installation-member-status-container {
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.live-installation-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+}
+
+.live-installation-filter {
+    margin-right: 2rem;
+    color: #525256;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    vertical-align:  middle;
+    cursor: pointer;
+}
+
+.installation-filter-icon {
+    padding-right: 6px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.live-installation-table {
+    width: 100%;
+    padding-bottom: 0.5rem;
+    font-weight: lighter;
+    font-size: 1rem;
+    text-align: start;
+    border-collapse: collapse;
+}
+
+.live-installation-table tr th {
+    color: var(--gray-opa2);
+    font-weight: lighter;
+    padding-bottom: 8px;
+    text-align: start;
+}
+
+.live-installation-table tr {
+    border-bottom: 1px solid var(--gray-opa2);
+}
+
+.live-installation-table tr td {
+    padding: 0.5rem 0;
+    font-weight: normal;
+}
+
+.live-installation-table tr td:nth-child(4) {
+    color: #656575;
+    height: 100%;
+}
+
+.live-installation-table tr:last-child {
+    border-bottom: none;
+}
+
+.installation-status-container {
+    display: flex;
+    align-items: center;
+}
+
+.installation-circle-outer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%; /* Creates the circle shape */
+    width: 1.25rem; /* Set the width and height to make a circle */
+    height: 1.25rem;
+    line-height: 1; /* Centers the text vertically */
+    text-align: center; /* Centers the text horizontally */
+}
+
+.installation-circle-inner {
+    border-radius: 50%; /* Creates the circle shape */
+    width: 1rem; /* Set the width and height to make a circle */
+    height: 1rem;
+    line-height: 1; /* Centers the text vertically */
+    text-align: center; /* Centers the text horizontally */
+}
+
+.installation-status-text {
+    margin-left: 0.5rem;
+} 

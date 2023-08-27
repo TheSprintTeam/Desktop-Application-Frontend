@@ -249,3 +249,7 @@ button:disabled:hover {
     outline: none;
     border: 1px solid var(--gray-opa2);
 }
+
+.signup-button-back.installations {
+    margin-bottom: 1rem;
+}
