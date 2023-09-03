@@ -13,6 +13,7 @@ import CreateTeamPage from './pages/CreateTeamPage.jsx';
 import InstallPage from './pages/InstallPage.jsx';
 import SendInvitePage from './pages/SendInvitePage.jsx';
 import ViewTeamsPage from './pages/ViewTeamsPage.jsx';
+import { isEmptyObjectField } from './utils/helpers.jsx';
 
 function App() {
   const [user, setUser] = useState({
@@ -32,6 +33,14 @@ function App() {
           name: userData.data.first_name + " " + userData.data.last_name,
           verified: userData.data.verified
         });
+      } else {
+        if (!isEmptyObjectField(user)) {
+          setUser({
+            email: "",
+            name: "",
+            verified: "",
+          });
+        }
       }
     }
 
