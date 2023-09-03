@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ProgressBar from "../components/ProgressBar";
+import { CircleProgressBar, ProgressBar } from "../components/ProgressBar";
 import { FaSistrix, FaSliders } from "react-icons/fa6";
 import { getBackgroundColor, mapRoleIdToName } from "../utils/helpers";
 import "../assets/css/Installations.css";
@@ -34,10 +34,10 @@ export function InstallationsManager({ team_lead, members }) {
                         {allMembers && allMembers.filter(member=>(member.user.first_name.toLowerCase()+member.user.last_name.toLowerCase()).includes(query)).map((member) => {
                             return (
                                 <li key={member.user.id} data-index={member.user.id} 
-                                    className="members-item-installations"
+                                    className={`members-item-installations ${selectedMember.user.id === member.user.id ? "selected" : ""}`}
                                     onClick={() => {handleMemberSelect(member)}}>
                                     <span className="members-progress">
-                                        <span className="members-progress-circle">Circle</span>
+                                        <CircleProgressBar completed={1} totalInstallations={3} isSelected={selectedMember.user.id===member.user.id}/>
                                     </span>
                                     <div className="member-right">
                                         <div class="member-item-text">{member.user.first_name+" "+member.user.last_name}</div>
