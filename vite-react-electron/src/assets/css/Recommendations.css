@@ -37,8 +37,9 @@
 }
 
 .pending-recs-tech, .pending-recs-actions {
-    padding: 3em 0;
+    padding: 1.25em 0;
 }
+
 .pending-recs-actions {
     text-align: center;
 }
