@@ -6,10 +6,11 @@
 }
 
 .installation-left-container {
-    padding: 16px;
+    padding: 1rem;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    width: 25.5rem;
+    width: 26rem;
+    height: 600px;
 }
 
 .searchbox-container {
@@ -17,6 +18,7 @@
     align-items: center;
     border-radius: 8px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
 }
 
 .searchbox-members {
@@ -36,33 +38,42 @@
 }
 
 .members-dropdown-container-installation {
-    margin-top: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     transition: 0.3s ease-in-out;
-    overflow-y: auto;
+    height: calc(100% - 3.5rem);
 }
 
 .members-dropdown-items-installation {
-    position: relative;
-    margin-top: 16px;
-    padding: 0 0 16px 0px;
-    height: auto;
-    max-height: fit-content;
+    padding: 0;
+    height: 100%;
     list-style: none;
+    width: 100%;
+    overflow-y: auto;
+}
+
+.members-dropdown-items-installation::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 37.5rem;
+    left: 32rem;
+    top: 0;
+    background: var(--silver);
+    z-index: 1;
+    margin-top: 12.75rem;
 }
 
 .members-item-installations {
     display: flex;
     align-items: center;
     list-style: none;
-    height: 48px;
+    margin-bottom: 1rem;
     cursor: pointer;
     transition: 0.3s;
     border-radius: 4px;
-    margin-bottom: 16px;
-    padding: 4px;
+    width: 100%;
 }
 
 .members-item-installations.selected {
@@ -75,6 +86,10 @@
 
 .members-progress {
     margin-right: 1rem;
+    padding: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .member-item-text {
