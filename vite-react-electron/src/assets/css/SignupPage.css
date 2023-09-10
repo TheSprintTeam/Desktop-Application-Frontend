@@ -26,6 +26,7 @@
     max-height: 20px;
     line-height: 20px;
     padding: 8px;
+    align-items: center;
 }
 
 .external-provider>span {
