@@ -1,18 +1,20 @@
-nav {
-    height: 60px;
+.top-nav {
+    height: 90px;
     width: 100%;
     display: flex;
     position: relative;
     justify-content: space-between;
     align-items: center;
-    background-color: #550880;
+    background-color: #550080;
     padding: 0.5rem 0rem;
+    z-index: 1;
 }
   
 .navbar-left {
     list-style-type: none;
     display: flex;
     gap: 10px;
+    padding-left: 60px;
 }
 .navbar-left li {
     margin-right: 10px;
@@ -21,18 +23,26 @@ nav {
     text-decoration: none;
     color: #fff;
     cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .navbar-right {
-    padding-right: 30px;
+    padding-right: 60px;
 }
 .navbar-right a {
     text-decoration: none;
     color: #fff;
     cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
 }
 .navbar-right img {
     width: 30px;
     height: 30px;
     gap: 10px;
+}
+
+.sprint-icon {
+    display: inline-block;
 }

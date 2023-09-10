@@ -1,0 +1,55 @@
+.create-input-field-container {
+    padding-bottom: 24px;
+}
+
+.create-input-field-title {
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.create-input-field-container.active {
+    padding-bottom: 8px;
+}
+
+.technologies-container {
+    display: flex;
+    width: 800px;
+    flex-flow: row wrap;
+}
+
+.technology {
+    background-color: var(--light-gray);
+    width: max-content;
+    padding: 6px;
+    border-radius: 4px;
+    margin: 0px 8px 16px 0px;
+}
+
+.technology-icon-wrapper {
+    display: flex;
+    flex-direction: row;
+    max-height: 16px;
+    line-height: 16px;
+}
+
+.technology-icon-wrapper>span {
+    padding-left: 6px;
+}
+
+.technology-remove {
+    cursor: pointer;
+}
+
+.project-info-textarea {
+    margin-bottom: 16px;
+    height: 48px;
+    border: 1px solid var(--gray-opa2);
+    outline: 1px var(--gray-opa2);
+    font-size: 16px;
+    border-radius: 4px;
+    width: 520px;
+    height: 100px;
+    padding: 8px;
+    margin: 0px;
+}

@@ -1,0 +1,255 @@
+/* Style Disabled Button */
+button:disabled {
+    cursor: not-allowed;
+    background-color: #c4c4c4;
+}
+button:disabled:hover {
+    background-color: #c4c4c4;
+}
+
+/* Button Styling for Dashboard Welcome Page */
+.button-welcome {
+    background-color: var(--light-white);
+    color: var(--gray-opa2);
+    font-size: 120px;
+    border: 2px dashed var(--gray-opa2);
+    height: 200px;
+    width: 200px;
+    padding: 0px;
+    line-height: 100px;
+    transition: 0.3s;
+}
+
+.button-welcome:hover {
+    background-color: var(--light-purple);
+    color: #fff;
+    border: 2px dashed rgba(109,112,118, 0.5);
+}
+
+.button-welcome:focus {
+    background-color: var(--light-purple-opa8);
+    border: 2px solid var(--gray-opa2);
+    outline: none;
+    transform: scale(0.9);
+    box-shadow: 0 3px 15px -2px;
+    color: #fff;
+}
+
+/* Button Styling for Joining a Team */
+.button-submit {
+    background-color: var(--light-gray);
+    border: var(--light-gray);
+    width: 300px;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 36px;
+    padding: 0px;
+    transition: 0.3s;
+    margin: 4px;
+}
+
+.button-submit:hover {
+    background-color: var(--light-purple);
+    color: #fff;
+    border: var(--light-purple);
+}
+
+.button-submit:focus {
+    background-color: var(--light-purple-opa8);
+    border: 2px solid var(--gray-opa2);
+    outline: none;
+    transform: scale(0.9);
+    box-shadow: 0 3px 15px -2px;
+    color: #fff;
+}
+
+/* Button Styling for Sign Up Page */
+.button-external {
+    background-color: #fff;
+    color: var(--gray);
+    font-size: 20px;
+    border: 1px solid var(--gray-opa2);
+    height: 48px;
+    width: 100%;
+    padding: 0px;
+    font-weight: bold;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 2px;
+}
+
+.button-external:hover {
+    /*background-color: #9f7aea;
+    color: #fff;*/
+    border: 1px solid var(--gray-opa2);
+    outline: 3px solid var(--light-purple-opa2);
+}
+
+.button-external:focus {
+    background-color: var(--light-purple);
+    border: 1px solid var(--light-purple);
+    outline: none;
+    box-shadow: 0 3px 15px -2px;
+    color: #fff;
+    transition: 0.3s ease-in-out;
+}
+
+.signup-button-next {
+    background-color: var(--light-purple);
+    border: 1px solid var(--gray-opa2);
+    font-size: 20px;
+    font-weight: bold;
+    height: 48px;
+    line-height: 10px;
+    outline: none;
+    box-shadow: 0 3px 15px -2px;
+    color: #fff;
+    transition: 0.3s;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 2px;
+}
+
+.signup-button-next:hover {
+    background-color: var(--light-purple-opa8);
+    border: 1px solid var(--gray-opa2);
+    outline: none;
+    box-shadow: 0 3px 15px -2px;
+    color: #fff;
+}
+
+.signup-button-next:focus {
+    outline: none;
+}
+
+.signup-button-back {
+    max-width: fit-content;
+    background-color: #fff;
+    padding: 0px;
+    margin: 0px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 8px;
+    border: none;
+}
+
+.signup-button-back:hover {
+    outline: none;
+}
+
+.signup-button-back:focus {
+    outline: none;
+}
+
+/* Popup Modal Button */
+.modal-exit {
+    max-width: fit-content;
+    background-color: #fff;
+    padding: 0px;
+    margin: 0px;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 8px;
+    border: none;
+}
+
+.modal-exit:hover {
+    outline: none;
+}
+
+.modal-exit:focus {
+    outline: none;
+}
+
+/* Buttons for Create Team */
+.create-button-backnext {
+    max-width: fit-content;
+    background-color: var(--light-purple);
+    border: 1px solid var(--gray-opa2);
+    font-weight: bold;
+    height: 36px;
+    outline: none;
+    box-shadow: 0 3px 15px -2px;
+    color: #fff;
+    transition: 0.3s;
+    margin: 0px;
+    line-height: 8px;
+}
+
+.create-button-backnext:hover {
+    background-color: var(--light-purple-opa8);
+    border: 1px solid var(--gray-opa2);
+    outline: none;
+    color: #fff;
+}
+
+.create-button-backnext:focus {
+    outline: none;
+}
+
+/* Styling for Button Invite */ 
+.button-invite {
+    max-width: fit-content;
+    background-color: var(--light-purple);
+    border: 1px solid var(--gray-opa2);
+    font-weight: bold;
+    height: 36px;
+    outline: none;
+    box-shadow: 0 3px 15px -2px;
+    color: #fff;
+    transition: 0.3s;
+    margin: 0px;
+    line-height: 8px;
+}
+
+.button-invite:hover {
+    background-color: var(--light-purple-opa8);
+    border: 1px solid var(--gray-opa2);
+    outline: none;
+    color: #fff;
+}
+
+.button-invite:focus {
+    outline: none;
+}
+
+/* Styling for View Teams Button Invite */
+.view-teams-invite-button {
+    background-color: var(--light-purple);
+    border: 1px solid var(--gray-opa2);
+    font-size: 20px;
+    font-weight: bold;
+    height: 48px;
+    line-height: 10px;
+    outline: none;
+    color: #fff;
+    transition: 0.3s;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 2px;
+    width: 100%;
+}
+
+/* Styling for Select Members Button */
+.select-button {
+    max-width: fit-content;
+    background-color: var(--light-gray);
+    border: 1px solid var(--gray-opa2);
+    padding: 6px;
+    border-radius: 4px;
+    outline: none;
+    color: #000;
+    font-size: 16px;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.select-button:hover {
+    outline: none;
+    border: 1px solid lightcoral;
+    background-color: var(yellow);
+    color: lightcoral;
+}
+
+.select-button:focus {
+    outline: none;
+    border: 1px solid var(--gray-opa2);
+}
+
+.signup-button-back.installations {
+    margin-bottom: 1rem;
+}

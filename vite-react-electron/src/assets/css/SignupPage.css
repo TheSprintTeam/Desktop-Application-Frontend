@@ -1,0 +1,130 @@
+.signup-inner {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #cbd5e0;
+    padding: 16px;
+    border-radius: 8px;
+    width: 342px;
+    max-width: 342px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.signup-inner-title {
+    display: flex;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.signup-button-divider {
+    padding: 8px;
+}
+
+.external-provider {
+    display: flex;
+    flex-direction: row;
+    max-height: 20px;
+    line-height: 20px;
+    padding: 8px;
+}
+
+.external-provider>span {
+    padding-right: 8px;
+}
+
+.divider-container {
+    text-align: center;
+    position: relative;
+    padding-top: 16px;
+    color: var(--gray);
+}
+
+.line {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.divider-container:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    border-top: 1px solid var(--gray);
+    background: black;
+    width: 100%;
+    transform: translateY(-50%);
+}
+
+.line-or {
+    width: 60px;
+    height: 30px;
+    background: #fff;
+    color: var(--gray)
+}
+
+.login-click {
+    cursor: pointer;
+}
+
+.signup-bottom {
+    padding-top: 8px;
+}
+
+.input-field-container {
+    width: 100%;
+}
+
+/* SECOND SCREEN */
+
+
+/* Styling for Login Page */
+.login-page-title {
+    display: flex;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.signup-input-field.login {
+    margin: 0px;
+}
+
+.input-field-bottom {
+    margin-bottom: 16px;
+}
+
+.forgot-pass {
+    cursor: pointer;
+}
+
+.signup-bottom-redirect {
+    margin-top: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-bottom-link {
+    margin-left: 4px;
+    cursor: pointer;
+}
+
+.signup-inner-desc-container {
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.input-error {
+    margin-top: -16px;
+    padding-bottom: 8px;
+    color: lightcoral;
+}
+
+.input-error-login {
+    color: lightcoral;
+}

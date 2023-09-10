@@ -1,0 +1,95 @@
+.dashpage-outer {
+    background-color: #fff;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; 
+    min-height: 100%; /* Set the container height to 100% of the viewport */
+    padding: 0 2em; /* Add horizontal padding */
+    box-sizing: border-box; /* Include padding in the height calculation */
+    overflow: hidden; /* Hide overflow by default */
+}
+
+.dashpage-image-left {
+    position: absolute;
+    bottom: 0;
+    width: 15vw; /* Adjust the width based on viewport width */
+    padding-bottom: 0;
+    left: 0;
+}
+
+
+.dashpage-image-left-circle {
+    position: absolute;
+    width: 13vw; /* Adjust the width based on viewport width */
+    height: auto;
+    bottom: 0;
+    left: 17vw; /* Adjust the left position based on viewport width */
+}
+
+.dashpage-image-right {
+    position: absolute;
+    bottom: 0;
+    width: 16vw; /* Adjust the width based on viewport width */
+    padding-bottom: 0;
+    right: 0;
+}
+
+.dashpage-image-right-circle{
+    position: absolute;
+    width: 13vw; /* Adjust the width based on viewport width */
+    height: auto;
+    bottom: 3vw;
+    right: 17vw; /* Adjust the left position based on viewport width */
+}
+
+.dashpage-image-right-circle-above{
+    position: absolute;
+    width: 3vw; /* Adjust the width based on viewport width */
+    height: auto;
+    bottom: 19vw;
+    right: 10vw; /* Adjust the left position based on viewport width */
+}
+.dashpage-inner {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%; /* Expand to full width */
+    flex: 1; /* Take available vertical space */
+    margin-top: 2em; /* Add top margin for spacing */
+}
+
+.dashpage-create,
+.dashpage-join {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em 2.5%; 
+}
+
+.dashpage-button-top {
+    padding-bottom: 2em;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+/* Media Query for Small Screens */
+@media (max-width: 768px) {
+    .dashpage-inner {
+        flex-direction: column; /* Stack items vertically */
+    }
+
+    .dashpage-create,
+    .dashpage-join {
+        padding: 2em 5%; 
+    }
+    /* Hides the images because the screen is too small*/
+    .dashpage-image-left,
+    .dashpage-image-left-circle, 
+    .dashpage-image-right,
+    .dashpage-image-right-circle,
+    .dashpage-image-right-circle-above {
+        display: none;
+    }
+}

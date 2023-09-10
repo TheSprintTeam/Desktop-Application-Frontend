@@ -1,0 +1,139 @@
+.accordion {
+    padding-bottom: 16px;
+}
+
+.accordion-container {
+    border-radius: 4px;
+    border: 1px solid var(--silver);
+}
+
+.accordion-header-container {
+    background-color: var(--light-white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 58px;
+    padding: 0px 16px;
+    cursor: pointer;
+}
+
+.accordion-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.accordion-right {
+    display: flex;
+}
+
+.accordion-edit-icon {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    vertical-align: middle;
+    padding-right: 16px;
+    cursor: pointer;
+    color: rgb(18, 175, 223);
+    font-weight: bold;
+}
+
+.accordion-edit-icon:hover {
+    color: var(--light-purple);
+}
+
+.accordion-pen {
+    padding-right: 6px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.accordion-dropdown-icon {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.accordion-inner-container {
+    max-height: 0px;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0, 1, 0, 1);
+}
+
+.accordion-key {
+    font-weight: bold;
+}
+
+.accordion-inner-container.show {
+    border-top: 1px solid var(--silver);
+    height: auto;
+    max-height: fit-content;
+    transition: all 0.5s cubic-bezier(0, 1, 0, 1);
+}
+
+.accordion-invite-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.invitations-table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.invitations-table th, .invitiations-table td {
+    border-bottom: 1px solid var(--silver);
+    text-align: left;
+}
+
+/* Accordion for Teams */
+.accordion-teams {
+    padding-bottom: 16px;
+    width: 100%;
+}
+
+.accordion-container-teams {
+    border-radius: 4px;
+    border: 1px solid var(--silver);
+    width: 1000px;
+}
+
+/* Accordion for Recommendations */
+
+.accordion.recs {
+    padding: 0px;
+}
+
+.accordion-container.recs {
+    border-radius: 0px;
+    border: none;
+}
+
+.accordion-header-container.recs {
+    background-color: #e2e8f0;
+}
+
+.accordion-title.recs {
+    font-size: 16px;
+}
+
+.accordion-left.recs {
+    display: flex;
+}
+
+.accordion-dropdown-icon.recs {
+    padding-left: 4px;
+}
+
+.accordion-inner-container { 
+    padding: 0px 16px; 
+}
+
+.accordion-inner-container.recs {
+    border-top: none;
+    background-color: #f7fafc;
+}
