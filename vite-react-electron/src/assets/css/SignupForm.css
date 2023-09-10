@@ -5,21 +5,19 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding-top: 120px;
+    padding: 1.5rem 0;
 }
 
 .signup-title {
-    font-size: 48px;
     font-weight: bold;
     margin: 0px;
-    height: 62px;
-    padding-bottom: 24px;
+    padding-bottom: 1.5rem;
 }
 
 .signup-desc {
-    font-size: 22px;
+    font-size: 1.125rem;
     font-weight: medium;
     margin: 0px;
     height: 30px;
-    padding-bottom: 56px;
+    padding-bottom: 3.5rem;
 }

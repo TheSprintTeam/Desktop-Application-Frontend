@@ -5,7 +5,7 @@ import SignupForm from "../components/SignupForm";
 import Button from "../components/Button";
 import PopupModal from "../components/PopupModal";
 import { InputField, InputFieldPassword } from "../components/InputFields";
-import { isEmpty, isEmptyObjectField } from "../utils/helpers";
+import { isEmptyObjectField, validateEmail } from "../utils/helpers";
 import "../assets/css/SignupPage.css";
 
 export default function LoginPage() {
@@ -15,7 +15,6 @@ export default function LoginPage() {
         "password": "",
     }
     const [account, setAccount] = useState(accountInfo);
-    const [showError, setShowError] = useState({ ...accountInfo});
     const [modalContent, setModalContent] = useState({
         "title": "",
         "children": "",
@@ -62,9 +61,6 @@ export default function LoginPage() {
     function handleInputChange(e) {
         const { name, value } = e.target;
         setAccount((prevInputs) => ({ ...prevInputs, [name]: value}))
-        
-        // set error if input is not filled
-        setShowError((prevErrors) => ({ ...prevErrors, [name]: isEmpty(value)}))
     }
 
     return (
@@ -78,14 +74,13 @@ export default function LoginPage() {
                         <InputField name="email" className="signup-input-field" value={account.email ? account.email: ""} 
                             type="email" onChange={handleInputChange}
                         />
-                        {showError.email && <div className="input-error">Email address is required</div>}
+                        {account.email && !validateEmail(account.email) && <div className="input-error">Email address is required</div>}
                     </div>
                     <div className="input-field-container">
                         <div className="input-field-title">Password</div>
                         <InputFieldPassword className="signup-input-field login" value={account.password ? account.password : ""} 
                             onChange={handleInputChange}
                         />
-                        {showError.password && <div className="input-error-login">Password must be at least 8 characters</div>}
                         <div className="input-field-bottom"><Link to="/forgot-password" className="forgot-pass">Forgot password?</Link></div>
                     </div>
                     <Button type={"button"} className={"signup-button-next"} children={"Login"}

@@ -5,7 +5,7 @@ import SignupForm from "../components/SignupForm";
 import Button from "../components/Button";
 import PopupModal from "../components/PopupModal";
 import { InputField, InputFieldPassword } from "../components/InputFields";
-import { isEmpty } from "../utils/helpers";
+import { isEmpty, validateEmail } from "../utils/helpers";
 import "../assets/css/SignupPage.css";
 
 import { FaGoogle, FaMicrosoft, FaArrowLeft } from "react-icons/fa6"
@@ -23,7 +23,6 @@ export default function SignupPage() {
     const [screen, setScreen] = useState(1);
     const [OTPCode, setOTPCode] = useState("");
     const [account, setAccount] = useState(accountInfo);
-    const [showError, setShowError] = useState({ ...accountInfo});
     const [modalContent, setModalContent] = useState({
         "title": "",
         "children": "",
@@ -46,9 +45,6 @@ export default function SignupPage() {
     function handleInputChange(e) {
         const { name, value } = e.target;
         setAccount((prevInputs) => ({ ...prevInputs, [name]: value}))
-        
-        // set error if input is not filled
-        setShowError((prevErrors) => ({ ...prevErrors, [name]: isEmpty(value)}))
     }
 
     async function handleClickSubmit() {
@@ -98,8 +94,6 @@ export default function SignupPage() {
         }
     }
 
-    console.log(modalContent.showModal);
-
     let itemContent
     if (screen === 1) {
         itemContent = (
@@ -123,7 +117,7 @@ export default function SignupPage() {
                     <InputField name="email" className="signup-input-field" autoFocus={true} value={account.email ? account.email : ""}
                         type="email" onChange={handleInputChange}
                     />
-                    {showError.email && <div className="input-error">Email address is required</div>}
+                    {account.email && !validateEmail(account.email) && <div className="input-error">Email address is required</div>}
                 </div>
                 <Button onClick={() => account.email ? setScreen(screen + 1) : undefined} type={"button"} className={"signup-button-next"} children={"Continue"}/>
                 <div className="signup-bottom">
@@ -144,21 +138,21 @@ export default function SignupPage() {
                     <InputField name="firstname" className="signup-input-field" value={account.firstname ? account.firstname : ""}
                         onChange={handleInputChange}
                     />
-                    {showError.firstname && <div className="input-error">First name is required</div>}
+                    {isEmpty(account.firstname) && <div className="input-error">First name is required</div>}
                 </div>
                 <div className="input-field-container">
                     <div className="input-field-title">Last Name</div>
                     <InputField name="lastname" className="signup-input-field" value={account.lastname ? account.lastname : ""}
                         onChange={handleInputChange}
                     />
-                    {showError.lastname && <div className="input-error">Last name is required</div>}
+                    {isEmpty(account.lastname) && <div className="input-error">Last name is required</div>}
                 </div>
                 <div className="input-field-container">
                     <div className="input-field-title">Password</div>
                     <InputFieldPassword className={"signup-input-field"} value={account.password ? account.password : ""} 
                         onChange={handleInputChange}
                     />
-                    {showError.password && <div className="input-error">Password must be at least 8 characters</div>}
+                    {(isEmpty(account.password) || account.password.length < 8) && (<div className="input-error">Password must be at least 8 characters</div>)}
                 </div>
                 <Button type="submit" className="signup-button-next" children={"Create Account"}
                     onClick={handleClickSubmit}
