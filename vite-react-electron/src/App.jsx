@@ -21,6 +21,7 @@ function App() {
     name: "",
     verified: "",
   });
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   useEffect(() => {
     const checkUser = async () => {
@@ -54,6 +55,7 @@ function App() {
         <Outlet />
       </div>
     );
+    
   }
 
   const router = createBrowserRouter([
