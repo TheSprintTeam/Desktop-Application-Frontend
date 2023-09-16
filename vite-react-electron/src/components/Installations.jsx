@@ -37,7 +37,7 @@ export function InstallationsManager({ team_lead, members }) {
                                     className={`members-item-installations ${selectedMember.user.id === member.user.id ? "selected" : ""}`}
                                     onClick={() => {handleMemberSelect(member)}}>
                                     <span className="members-progress">
-                                        <CircleProgressBar completed={1} totalInstallations={3} isSelected={selectedMember.user.id===member.user.id}/>
+                                        <CircleProgressBar completed={1} totalInstallations={5} isSelected={selectedMember.user.id===member.user.id}/>
                                     </span>
                                     <div className="member-right">
                                         <div class="member-item-text">{member.user.first_name+" "+member.user.last_name}</div>
@@ -59,7 +59,7 @@ export function InstallationsManager({ team_lead, members }) {
 export function InstallationsUser({ member }) {
     const progressInstallations = [
         {
-            name: "Node",
+            name: "Node.js",
             percentage: 100,
             status: "Completed"
         },
@@ -69,10 +69,20 @@ export function InstallationsUser({ member }) {
             status: "Pending"
         },
         {
-            name: "MySQL",
+            name: "Electron",
             percentage: 0,
             status: "Pending"
-        }
+        },
+        {
+            name: "Pytorch",
+            percentage: 0,
+            status: "Pending"
+        },
+        {
+            name: "Ansible",
+            percentage: 0,
+            status: "Pending"
+        },
     ];
 
     return (
