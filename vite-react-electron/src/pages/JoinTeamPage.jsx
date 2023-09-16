@@ -4,8 +4,11 @@ import Button from "../components/Button";
 import PopupModal from "../components/PopupModal";
 import { joinTeam } from "../api/team";
 import "../assets/css/JoinTeamPage.css";
+import { useNavigate } from "react-router-dom";
 
 export default function JoinTeamPage() {
+    const navigate = useNavigate();
+
     const [OTPCode, setOTPCode] = useState("");
     const [modalContent, setModalContent] = useState({
         "title": "",
@@ -29,9 +32,10 @@ export default function JoinTeamPage() {
             console.log("success!");
             setModalContent({
                 title: "Success",
-                children: "You have successfully logged in to your account! Redirecting you back to the home page in 3 seconds.",
+                children: "You have successfully joined the team! Redirecting you back to the home page in 3 seconds.",
                 showModal: true
             });
+            navigate("/");
         }
     }
 

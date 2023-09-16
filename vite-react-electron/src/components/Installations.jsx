@@ -59,7 +59,7 @@ export function InstallationsManager({ team_lead, members }) {
 export function InstallationsUser({ member }) {
     const progressInstallations = [
         {
-            name: "NPM",
+            name: "Node",
             percentage: 100,
             status: "Completed"
         },
@@ -70,8 +70,8 @@ export function InstallationsUser({ member }) {
         },
         {
             name: "MySQL",
-            percentage: 75,
-            status: "Failed"
+            percentage: 0,
+            status: "Pending"
         }
     ];
 

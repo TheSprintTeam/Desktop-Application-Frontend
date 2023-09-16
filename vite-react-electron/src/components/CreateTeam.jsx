@@ -57,7 +57,7 @@ export default function CreateTeam({ title, children, screen, onChangeScreen, pr
                 showModal: true
             });
             setTimeout(() => {
-                navigate("/install/"+String(teamId));
+                navigate("/");
                 window.location.reload();
             }, 3000);
         }
