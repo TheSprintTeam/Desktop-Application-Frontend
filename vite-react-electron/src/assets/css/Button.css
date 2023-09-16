@@ -170,6 +170,8 @@ button:disabled:hover {
     transition: 0.3s;
     margin: 0px;
     line-height: 8px;
+    display: flex;
+    align-items: center;
 }
 
 .create-button-backnext:hover {

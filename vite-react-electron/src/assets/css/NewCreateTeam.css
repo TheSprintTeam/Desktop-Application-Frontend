@@ -18,9 +18,7 @@
     align-items: center; /* Center vertically */
     flex-direction: row;
     max-height: 16vw; /* Adjust based on your design */
-    line-height: 1; /* Reset line-height to default (1) */
     padding: 0.01em 0; /* Adjust padding as needed */
-    
 }
 
 .external-div-create-left>span {
