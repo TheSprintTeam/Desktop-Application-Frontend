@@ -10,6 +10,7 @@ const availableTechnologies = [
   "JavaScript",
   "HTML",
   "CSS",
+  "PyTorch",
   // Add more technologies as needed
 ];
 
