@@ -65,23 +65,28 @@ export default function InstallPage() {
                 </div>
                 <div className="dashpage-members-container">
                     <div className="dashpage-members-title">Select the members you want to install technology for</div>
-                    <Select size={members.length} options={selectedMembers} onOptionsChange={setSelectedMembers} children={
-                        <>
-                            {members && members.map((member) => {
-                                return (
-                                    <li key={member.user.id} data-index={member.user.id} 
-                                        className={`members-item${(selectedMembers.find(o => o.user_id === member.user.id)) ? " selected" : ""}`} 
-                                        onClick={e => {handleOptionChange(e)}}>
-                                        <span className="members-checkbox">
-                                            <span className="members-checkbox-icon"><FaCheck/></span>
-                                        </span>
-                                        <span class="member-item-text">{member.user.first_name+" "+member.user.last_name}</span>
-                                    </li>
-                                )
-                            })}
-                        </>
-                        }
-                    />
+                    {members.length > 0 ? 
+                        <Select size={members.length} options={selectedMembers} onOptionsChange={setSelectedMembers} children={
+                            <>
+                                {members && members.map((member) => {
+                                    return (
+                                        <li key={member.user.id} data-index={member.user.id} 
+                                            className={`members-item${(selectedMembers.find(o => o.user_id === member.user.id)) ? " selected" : ""}`} 
+                                            onClick={e => {handleOptionChange(e)}}>
+                                            <span className="members-checkbox">
+                                                <span className="members-checkbox-icon"><FaCheck/></span>
+                                            </span>
+                                            <span class="member-item-text">{member.user.first_name+" "+member.user.last_name}</span>
+                                        </li>
+                                    )
+                                })}
+                            </>
+                            }
+                        /> 
+                        :
+                        <div className="dashpage-no-members">No members have currently joined the team</div>
+                    }
+                    
                 </div>
             </div>
         );
@@ -96,6 +101,8 @@ export default function InstallPage() {
             </div>
         );
     }
+
+    console.log(members);
 
     return (
         itemInfo

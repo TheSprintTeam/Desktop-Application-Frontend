@@ -68,3 +68,8 @@
     font-weight: bold;
     font-size: 30px;
 }
+
+.dashpage-no-members {
+    display: flex;
+    justify-content: center;
+}
