@@ -18,6 +18,7 @@
     flex-direction: row;
     max-height: 16px;
     line-height: 16px;
+    align-items: center;
 }
 
 .external-div-create-left>span {
